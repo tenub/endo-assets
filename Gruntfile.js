@@ -2,14 +2,16 @@ module.exports = function (grunt) {
 	
 	var pkg = require('./package.json');
 
-	grunt.registerTask('default', ['clean', 'jshint', 'concat', 'mincss', 'uglify']);
+	grunt.registerTask('default', ['clean', 'csslint:lax', 'jshint', 'concat', 'autoprefixer', 'mincss', 'uglify']);
 
 	grunt.registerTask('doc', 'jsdoc:all'); /* shortcut since this is what people are used to */
 	grunt.registerTask('test', ['jshint:all']);
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-mincss');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 
@@ -17,6 +19,26 @@ module.exports = function (grunt) {
 		/* self explanatory really, but you'll want to place any of the directories that need to be cleaned up here */
 		clean: {
 			all: ['build', 'dist']
+		},
+
+		/* Runs CSS lint on all your src files */
+		csslint: {
+			strict: {
+				options: {
+					'import': 2
+				},
+				src: ['src/css/*.css']
+			},
+			lax: {
+				options: {
+					'adjoining-classes': false,
+					'box-sizing': false,
+					'box-model': false,
+					'import': false,
+					'outline-none': false
+				},
+				src: ['src/css/*.css']
+			}
 		},
 
 		/* Runs JS lint on all your src files and gruntfile */
@@ -40,6 +62,15 @@ module.exports = function (grunt) {
 					'src/js/*.js'
 				],
 				dest: 'build/js/main.js'
+			}
+		},
+
+		autoprefixer: {
+			options: {
+				//
+			},
+			no_dest: {
+				src: 'build/css/main.css'
 			}
 		},
 
