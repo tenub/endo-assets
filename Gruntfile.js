@@ -2,8 +2,7 @@ module.exports = function (grunt) {
 	
 	var pkg = require('./package.json');
 
-	grunt.registerTask('default', ['clean', 'csslint:lax', 'jshint', 'concat', 'autoprefixer', 'mincss', 'uglify']);
-
+	grunt.registerTask('default', ['clean', 'csslint:lax', 'jshint', 'concat', 'autoprefixer', 'mincss', 'uglify', 'zip:assets']);
 	grunt.registerTask('doc', 'jsdoc:all'); /* shortcut since this is what people are used to */
 	grunt.registerTask('test', ['jshint:all']);
 
@@ -14,14 +13,12 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-mincss');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-zip');
 
 	grunt.initConfig({
-		/* self explanatory really, but you'll want to place any of the directories that need to be cleaned up here */
 		clean: {
 			all: ['build', 'dist']
 		},
-
-		/* Runs CSS lint on all your src files */
 		csslint: {
 			strict: {
 				options: {
@@ -40,23 +37,17 @@ module.exports = function (grunt) {
 				src: ['src/css/*.css']
 			}
 		},
-
-		/* Runs JS lint on all your src files and gruntfile */
 		jshint: {
 			all: [
 				'Gruntfile.js',
 				'src/js/*.js'
 			]
 		},
-
 		concat: {
-			/* takes the base CSS along with the desktop/mobile CSS styles and creates a desktop/mobile application CSS file 
-			 * if you do not have mobile styles, you could remove the mobilecss task and just concat the desktop CSS files together. */
 			css: {
 				src: 'src/css/*.css',
 				dest: 'build/css/main.css'
 			},
-			/* Concatenating all the js here since these projects are not usually js heavy and order probably won't matter.  If needed, you can specify the actual order as an array */
 			js: {
 				src: [
 					'src/js/*.js'
@@ -64,17 +55,11 @@ module.exports = function (grunt) {
 				dest: 'build/js/main.js'
 			}
 		},
-
 		autoprefixer: {
-			options: {
-				//
-			},
 			no_dest: {
 				src: 'build/css/main.css'
 			}
 		},
-
-		/* minifies the concatanated CSS before copying them into the dist folder */
 		mincss: {
 			compress: {
 				files: {
@@ -84,8 +69,6 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-
-		/* minifies the JS and adds the version as well as time stamp at the top for easy checking against git */
 		uglify: {
 			js: {
 				files: {
@@ -94,8 +77,13 @@ module.exports = function (grunt) {
 					]
 				}
 			}
+		},
+		zip: {
+			assets: {
+				src: ['build/**', 'dist/**', 'node_modules/**', 'src/**', 'Gruntfile.js', 'package.json'],
+				dest: 'assets.zip'
+			}
 		}
-
 	});
 
 };
