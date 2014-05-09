@@ -1,0 +1,483 @@
+/**
+ * Element definitions
+ */
+
+body
+{
+	background-color:		#2a2a2a;
+	background-image:		-moz-linear-gradient(
+								45deg,
+								rgba(255,255,255,0.02) 25%,
+								transparent 25%,
+								transparent 50%,
+								rgba(255,255,255,0.02) 50%,
+								rgba(255,255,255,0.02) 75%,
+								transparent 75%,
+								transparent
+							);
+	background-image:		-ms-linear-gradient(
+								45deg,
+								rgba(255,255,255,0.02) 25%,
+								transparent 25%,
+								transparent 50%,
+								rgba(255,255,255,0.02) 50%,
+								rgba(255,255,255,0.02) 75%,
+								transparent 75%,
+								transparent
+							);
+	background-image:		-o-linear-gradient(
+								45deg,
+								rgba(255,255,255,0.02) 25%,
+								transparent 25%,
+								transparent 50%,
+								rgba(255,255,255,0.02) 50%,
+								rgba(255,255,255,0.02) 75%,
+								transparent 75%,
+								transparent
+							);
+	background-image:		-webkit-linear-gradient(
+								45deg,
+								rgba(255,255,255,0.02) 25%,
+								transparent 25%,
+								transparent 50%,
+								rgba(255,255,255,0.02) 50%,
+								rgba(255,255,255,0.02) 75%,
+								transparent 75%,
+								transparent
+							);
+	background-image:		linear-gradient(
+								45deg,
+								rgba(255,255,255,0.02) 25%,
+								transparent 25%,
+								transparent 50%,
+								rgba(255,255,255,0.02) 50%,
+								rgba(255,255,255,0.02) 75%,
+								transparent 75%,
+								transparent
+							);
+	background-size:		20px 20px;
+	color:					#fff;
+	font:					100% 'Gudea', sans-serif;
+	text-align:				center;
+}
+
+a
+{
+	color:					#cfa;
+	display:				inline-block;
+	text-decoration:		none;
+	-moz-transition:		0.5s color;
+	-ms-transition:			0.5s color;
+	-o-transition:			0.5s color;
+	-webkit-transition:		0.5s color;
+	transition:				0.5s color;
+}
+
+a:hover
+{
+	color:					#fff;
+	-moz-transition:		0.5s color;
+	-ms-transition:			0.5s color;
+	-o-transition:			0.5s color;
+	-webkit-transition:		0.5s color;
+	transition:				0.5s color;
+}
+
+code
+{
+	display:				block;
+	margin:					1em 0;
+}
+
+h1
+{
+	font-family:			'Bitter', serif;
+	font-size:				3em;
+	margin:					0;
+	text-transform:			uppercase;
+}
+
+p,
+h2
+{
+	font-family:			'Bitter', serif;
+}
+
+input:focus,
+select:focus,
+button:focus,
+textarea:focus
+{
+	outline:				none;
+}
+
+input,
+label
+{
+	box-sizing:				border-box;
+	color:					#fff;
+	height:					1.5em;
+	line-height:			1.5em;
+	padding:				3px 6px;
+}
+
+form
+{
+	margin:					1em 0;
+}
+
+fieldset
+{
+	border:					none;
+}
+
+legend
+{
+	margin:					1em 0;
+	width:					100%;
+}
+
+input
+{
+	background:				rgba(0,0,0,0.25);
+	box-shadow:				0 0 0.5em rgba(0,0,0,0.2),
+							inset 0 1px rgba(255,255,255,0.2);
+	border:					1px solid rgba(0,0,0,0.2);
+	border-radius:			1em;
+}
+
+input:focus
+{
+	box-shadow:				0 0 0.5em rgba(204,255,170,0.5),
+							inset 0 1px rgba(255,255,255,0.2);
+}
+
+label
+{
+	background:				none;
+	display:				inline-block;
+	position:				relative;
+}
+
+sup
+{
+	line-height:			1em;
+	vertical-align:			text-top;
+}
+
+table
+{
+	background:				rgba(0,0,0,0.25);
+	box-shadow:				0 0 0.5em rgba(0,0,0,0.2),
+							inset 0 1px rgba(255,255,255,0.2);
+	border:					1px solid rgba(0,0,0,0.2);
+	border-collapse:		separate;
+	border-radius:			1em;
+	color:					#fff;
+	margin:					2em 0;
+	text-align:				left;
+	width:					100%;
+}
+
+caption
+{
+	box-sizing:				border-box;
+	font:					bold 1.4em 'Bitter', sans-serif;
+	line-height:			1em;
+	margin:					0 0 0.5em 0;
+	padding:				0 1em;
+}
+
+th
+{
+	font-size:				1.2em;
+	font-weight:			bold;
+	line-height:			2.5em;
+	margin:					0;
+	-moz-transition:		0.5s color;
+	-ms-transition:			0.5s color;
+	-o-transition:			0.5s color;
+	-webkit-transition:		0.5s color;
+	transition:				0.5s color;
+	white-space:			nowrap;
+}
+
+tr:hover td {
+	background:				rgba(0,0,0,0.2);
+}
+
+td li
+{
+	padding:				0.25em 0;
+	margin-left:			0.75em;
+}
+
+
+/**
+ * Class definitions
+ */
+
+.container
+{
+	margin:					2em auto;
+	width:					90%;
+}
+
+.logo
+{
+	text-shadow:			1px 1px 0 #000;
+}
+
+.nav
+{
+	margin-bottom:			2em;
+}
+
+.nav ul
+{
+	box-sizing:				border-box;
+	list-style:				none;
+	margin:					0;
+	padding:				0;
+}
+
+.nav li
+{
+	display:				inline;
+}
+
+.nav li:after
+{
+	content:				' | ';
+}
+
+.nav li:last-child:after
+{
+	content:				'';
+}
+
+.nav form
+{
+	clear:					both;
+}
+
+span.time
+{
+	color:					#a63753;
+	text-shadow:			1px 1px 0 #000;
+}
+
+.fa-search:before
+{
+	color:					rgba(255,255,255,0.3);
+	position:				absolute;
+	right:					1em;
+	top:					8px;
+	-moz-transform:			scale(-1,1);
+	-ms-transform:			scale(-1,1);
+	-o-transform:			scale(-1,1);
+	-webkit-transform:		scale(-1,1);
+	transform:				scale(-1,1);
+}
+
+th.sort:hover
+{
+	background-image:		-webkit-radial-gradient(
+								50% 100%,
+								200% 50%,
+								rgba(255,255,255,0.2),
+								rgba(255,255,255,0) 20%
+							);
+	background-image:		radial-gradient(
+								50% 100%,
+								200% 50%,
+								rgba(255,255,255,0.2),
+								rgba(255,255,255,0) 20%
+							);
+	color:					rgba(255,255,255,0.8);
+	cursor:					pointer;
+	-moz-transition:		0.5s color;
+	-ms-transition:			0.5s color;
+	-o-transition:			0.5s color;
+	-webkit-transition:		0.5s color;
+	transition:				0.5s color;
+}
+
+th .fa
+{
+	color:					#cfa;
+	text-align:				center;
+	-moz-transition:		0.5s color;
+	-ms-transition:			0.5s color;
+	-o-transition:			0.5s color;
+	-webkit-transition:		0.5s color;
+	transition:				0.5s color;
+	width:					20px;
+}
+
+th:hover .fa
+{
+	color:					#fff;
+	cursor:					pointer;
+	-moz-transition:		0.5s color;
+	-ms-transition:			0.5s color;
+	-o-transition:			0.5s color;
+	-webkit-transition:		0.5s color;
+	transition:				0.5s color;
+}
+
+.server,
+.players
+{
+	position:				relative;
+}
+
+.servers ul,
+.players ul
+{
+	background:				rgba(26,26,26,0.9);
+	box-shadow:				0 0 0.5em rgba(0,0,0,0.5);
+	border:					1px solid #1e1e20;
+	display:				none;
+	color:					#fff;
+	font-size:				0.8em;
+	list-style-position:	inside;
+	margin:					0;
+	padding:				0.25em 0;
+	position:				absolute;
+	top:					-0.75em;
+	width:					200px;
+	z-index:				1;
+}
+
+tr.subheader td
+{
+	background:				#353837;
+	text-align:				center;
+}
+
+.players ul
+{
+	right:					-20px;
+}
+
+.server ul
+{
+	left:					20px;
+}
+
+.players p,
+.server p
+{
+	margin:					0 0.75em;
+	text-decoration:		underline;
+}
+
+.players a:hover ul,
+.server a:hover ul
+{
+	display:				block;
+}
+
+.type img
+{
+	margin-left:			0.5em;
+}
+
+.date
+{
+	position:				relative;
+}
+
+.date .time
+{
+	display:				none;
+}
+
+tr:hover .time
+{
+	display:				block;
+}
+
+.meter
+{
+	border:					1px solid #000;
+	background:				rgba(255,255,255,0.2);
+	box-shadow:				inset 0 0.25em 2px rgba(30,30,30,0.3);
+	display:				inline-block;
+	height:					0.5em;
+	line-height:			0.5em;
+	position:				relative;
+	width:					50%;
+}
+
+.meter div
+{
+	box-shadow:				1px 0 0.2em rgba(30,30,30,0.3),
+							inset 0 -0.25em 0.25em rgba(30,30,30,0.3);
+	height:					100%;
+	left:					0;
+	position:				absolute;
+	top:					0;
+	z-index:				1;
+}
+
+.meter span
+{
+	font-size:				0.7em;
+	left:					100%;
+	margin:					0 0 0 0.5em;
+	position:				absolute;
+	top:					0;
+	z-index:				2;
+}
+
+.uwr
+{
+	background:				#ce6aff;
+	background:				-moz-linear-gradient(
+								left,
+								#ce6aff 0%,
+								#c961fc 0%,
+								#5fffff 34%,
+								#66f962 65%,
+								#ff6060 100%,
+								#ff696a 100%
+							);
+	background:				-ms-linear-gradient(
+								left,
+								#ce6aff 0%,
+								#c961fc 0%,
+								#5fffff 34%,
+								#66f962 65%,
+								#ff6060 100%,
+								#ff696a 100%
+							);
+	background:				-o-linear-gradient(
+								left,
+								#ce6aff 0%,
+								#c961fc 0%,
+								#5fffff 34%,
+								#66f962 65%,
+								#ff6060 100%,
+								#ff696a 100%
+							);
+	background:				-webkit-linear-gradient(
+								left,
+								#ce6aff 0%,
+								#c961fc 0%,
+								#5fffff 34%,
+								#66f962 65%,
+								#ff6060 100%,
+								#ff696a 100%
+							);
+	background:				linear-gradient(
+								left,
+								#ce6aff 0%,
+								#c961fc 0%,
+								#5fffff 34%,
+								#66f962 65%,
+								#ff6060 100%,
+								#ff696a 100%
+							);
+}
