@@ -166,6 +166,12 @@ th
 	white-space:				nowrap;
 }
 
+td
+{
+	position:					relative;
+	word-break:					break-all;
+}
+
 tbody tr:hover td
 {
 	background:					#000;
@@ -252,7 +258,7 @@ span.time
 
 .fa-search:before
 {
-	color:					#fff;
+	color:						#fff;
 	color:						rgba(255,255,255,0.3);
 	position:					absolute;
 	right:						1em;
@@ -356,12 +362,18 @@ th:hover .fa
 	margin-left:				0.5em;
 }
 
-.date
+tbody .datetime
 {
+	width:						20%;
+}
+
+tbody .date
+{
+	display:					block;
 	position:					relative;
 }
 
-.date .time
+tbody .time
 {
 	display:					none;
 }
@@ -369,6 +381,11 @@ th:hover .fa
 tr:hover .time
 {
 	display:					block;
+}
+
+tr:hover .date
+{
+	display:					none;
 }
 
 .meter
@@ -402,6 +419,7 @@ tr:hover .time
 	margin:						0 0 0 0.5em;
 	position:					absolute;
 	top:						0;
+	word-break:					normal;
 	z-index:					2;
 }
 
