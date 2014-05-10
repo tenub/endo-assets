@@ -26,20 +26,12 @@ a
 	color:						#cfa;
 	display:					inline-block;
 	text-decoration:			none;
-	-moz-transition:			0.5s color;
-	-ms-transition:				0.5s color;
-	-o-transition:				0.5s color;
-	-webkit-transition:			0.5s color;
 	transition:					0.5s color;
 }
 
 a:hover
 {
 	color:						#fff;
-	-moz-transition:			0.5s color;
-	-ms-transition:				0.5s color;
-	-o-transition:				0.5s color;
-	-webkit-transition:			0.5s color;
 	transition:					0.5s color;
 }
 
@@ -76,9 +68,8 @@ label
 {
 	box-sizing:					border-box;
 	color:						#fff;
-	height:						1.5em;
-	line-height:				1.5em;
-	padding:					3px 6px;
+	height:						2em;
+	line-height:				2em;
 }
 
 form
@@ -106,6 +97,7 @@ input
 	border:						1px solid #000;
 	border:						1px solid rgba(0,0,0,0.2);
 	border-radius:				1em;
+	padding:					0 1em;
 }
 
 input:focus
@@ -158,10 +150,7 @@ th
 	font-weight:				bold;
 	line-height:				2.5em;
 	margin:						0;
-	-moz-transition:			0.5s color;
-	-ms-transition:				0.5s color;
-	-o-transition:				0.5s color;
-	-webkit-transition:			0.5s color;
+	text-align:					left;
 	transition:					0.5s color;
 	white-space:				nowrap;
 }
@@ -262,7 +251,7 @@ span.time
 	color:						rgba(255,255,255,0.3);
 	position:					absolute;
 	right:						1em;
-	top:						8px;
+	top:						0.5em;
 	transform:					scale(-1,1);
 }
 
@@ -276,10 +265,6 @@ span.time
 	color:						#fff;
 	color:						rgba(255,255,255,0.8);
 	cursor:						pointer;
-	-moz-transition:			0.5s color;
-	-ms-transition:				0.5s color;
-	-o-transition:				0.5s color;
-	-webkit-transition:			0.5s color;
 	transition:					0.5s color;
 }
 
@@ -287,10 +272,6 @@ th .fa
 {
 	color:						#cfa;
 	text-align:					center;
-	-moz-transition:			0.5s color;
-	-ms-transition:				0.5s color;
-	-o-transition:				0.5s color;
-	-webkit-transition:			0.5s color;
 	transition:					0.5s color;
 	width:						20px;
 }
@@ -299,10 +280,6 @@ th:hover .fa
 {
 	color:						#fff;
 	cursor:						pointer;
-	-moz-transition:			0.5s color;
-	-ms-transition:				0.5s color;
-	-o-transition:				0.5s color;
-	-webkit-transition:			0.5s color;
 	transition:					0.5s color;
 }
 

@@ -98,7 +98,7 @@ module.exports = function (grunt) {
 				server_sep: '/'
 			}
 		},
-		watch: {
+		'watch': {
 			files: ['src/**'],
 			tasks: ['default']
 		}
