@@ -120,13 +120,15 @@ function parseValue(val, type) {
 			break;
 
 		case 'when':
-			var m = 0, dhm = val.match(/^(?:(\d)+d )?(?:(\d+)h )?(\d+)m$/);
-			if (typeof(dhm[1]) !== 'undefined')
-				m += dhm[1] * 1440;
-			if (typeof(dhm[2]) !== 'undefined')
-				m += dhm[2] * 60;
-			if (typeof(dhm[3]) !== 'undefined')
-				m += dhm[3];
+			var d = val.match(/\d+(?=d)/),
+				h = val.match(/\d+(?=h)/),
+				m = val.match(/\d+(?=m)/);
+			if (m)
+				m = parseInt(m, 10);
+			if (h)
+				m += parseInt(h, 10) * 60;
+			if (d)
+				m += parseInt(d, 10) * 1440;
 			val = m;
 			break;
 
