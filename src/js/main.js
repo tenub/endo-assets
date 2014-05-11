@@ -110,11 +110,17 @@ function parseValue(val, type) {
 	switch (type) {
 
 		case 'performance':
-			val = parseFloat(val.replace(/[^\d\-]/g, ''), 10);
+			var perc = val.match(/\s+(\d{2,3}\.\d{2})%$/);
+			if (val.indexOf('usc') !== -1)
+				val = 100;
+			else if (!perc)
+				val = 0;
+			else
+				val = parseFloat(perc[1], 10);
 			break;
 
 		case 'when':
-			var m = 0, dhm = val.match(/(?:(\d)+d )?(?:(\d+)h )?(\d+)m/);
+			var m = 0, dhm = val.match(/^(?:(\d)+d )?(?:(\d+)h )?(\d+)m$/);
 			if (typeof(dhm[1]) !== 'undefined')
 				m += dhm[1] * 1440;
 			if (typeof(dhm[2]) !== 'undefined')

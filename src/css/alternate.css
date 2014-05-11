@@ -344,23 +344,32 @@ tbody .datetime
 	width:						20%;
 }
 
-tbody .date
+tbody .performance
+{
+	width:						20%;
+}
+
+tbody .date,
+tbody .diff
 {
 	display:					block;
 	position:					relative;
 }
 
-tbody .time
+tbody .time,
+tbody .perc
 {
 	display:					none;
 }
 
-tr:hover .time
+tr:hover .time,
+tr:hover .perc
 {
 	display:					block;
 }
 
-tr:hover .date
+tr:hover .date,
+tr:hover .diff
 {
 	display:					none;
 }
