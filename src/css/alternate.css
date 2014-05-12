@@ -7,11 +7,11 @@ body
 	background-color:			#2a2a2a;
 	background-image:			linear-gradient(
 									45deg,
-									rgba(255,255,255,0.02) 25%,
+									#2e2e2e 25%,
 									transparent 25%,
 									transparent 50%,
-									rgba(255,255,255,0.02) 50%,
-									rgba(255,255,255,0.02) 75%,
+									#2e2e2e 50%,
+									#2e2e2e 75%,
 									transparent 75%,
 									transparent
 								);
@@ -90,20 +90,18 @@ legend
 
 input
 {
-	background:					#000;
-	background:					rgba(0,0,0,0.25);
+	background:					#1e1e1e;
 	box-shadow:					0 0 0.5em rgba(0,0,0,0.2),
-								inset 0 1px rgba(255,255,255,0.2);
-	border:						1px solid #000;
-	border:						1px solid rgba(0,0,0,0.2);
+								inset 0 1px #4a4a4a;
+	border:						1px solid #191919;
 	border-radius:				1em;
 	padding:					0 1em;
 }
 
 input:focus
 {
-	box-shadow:					0 0 0.5em rgba(204,255,170,0.5),
-								inset 0 1px rgba(255,255,255,0.2);
+	box-shadow:					0 0 0.5em #cfa,
+								inset 0 1px #4a4a4a;
 }
 
 label
@@ -121,12 +119,10 @@ sup
 
 table
 {
-	background:					#000;
-	background:					rgba(0,0,0,0.25);
+	background:					#1e1e1e;
 	box-shadow:					0 0 0.5em rgba(0,0,0,0.2),
-								inset 0 1px rgba(255,255,255,0.2);
-	border:						1px solid #000;
-	border:						1px solid rgba(0,0,0,0.2);
+								inset 0 1px #4a4a4a;
+	border:						1px solid #191919;
 	border-collapse:			separate;
 	border-radius:				1em;
 	color:						#fff;
@@ -163,13 +159,12 @@ td
 
 tbody tr:hover td
 {
-	background:					#000;
-	background:					rgba(0,0,0,0.2);
+	background:					#191919;
 }
 
 tfoot td
 {
-	/*background:					rgba(0,0,0,0.2);*/
+	/*background:					#191919*/
 	height:						0.5em;
 	text-align:					center;
 }
@@ -204,6 +199,11 @@ td li
 .logo
 {
 	text-shadow:				1px 1px 0 #000;
+}
+
+.caption
+{
+	width:						2em;
 }
 
 .nav
@@ -241,14 +241,13 @@ td li
 
 span.time
 {
-	color:						#a63753;
+	color:						#cc4614;
 	text-shadow:				1px 1px 0 #000;
 }
 
 .fa-search:before
 {
-	color:						#fff;
-	color:						rgba(255,255,255,0.3);
+	color:						#5e5e5e;
 	position:					absolute;
 	right:						1em;
 	top:						0.5em;
@@ -262,8 +261,7 @@ span.time
 									rgba(255,255,255,0.2),
 									rgba(255,255,255,0) 20%
 								);
-	color:						#fff;
-	color:						rgba(255,255,255,0.8);
+	color:						#ccc;
 	cursor:						pointer;
 	transition:					0.5s color;
 }
@@ -292,12 +290,10 @@ th:hover .fa
 .servers ul,
 .players ul
 {
-	background:					#000;
-	background:					rgba(0,0,0,0.9);
+	background:					#0a0a0a;
 	box-shadow:					0 0 0.5em rgba(0,0,0,0.2),
-								inset 0 1px rgba(255,255,255,0.2);
+								inset 0 1px #3a3a3a;
 	border:						1px solid #000;
-	border:						1px solid rgba(0,0,0,0.2);
 	border-radius:				0.5em;
 	display:					none;
 	color:						#fff;
@@ -376,10 +372,9 @@ tr:hover .diff
 
 .meter
 {
-	background:					#fff;
-	background:					rgba(255,255,255,0.2);
+	background:					#6a6a6a;
 	border:						1px solid #000;
-	box-shadow:					inset 0 0.25em 2px rgba(30,30,30,0.3);
+	box-shadow:					inset 0 0.25em 2px #535353;
 	display:					inline-block;
 	height:						0.5em;
 	line-height:				0.5em;
@@ -400,7 +395,7 @@ tr:hover .diff
 
 .meter span
 {
-	font-size:					0.7em;
+	font-size:					0.75em;
 	left:						100%;
 	margin:						0 0 0 0.5em;
 	position:					absolute;

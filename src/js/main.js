@@ -109,6 +109,11 @@ function parseValue(val, type) {
 
 	switch (type) {
 
+		case 'avg-rank':
+			if (val === 'n/a')
+				val = 9999;
+			break;
+
 		case 'performance':
 			var perc = val.match(/\s+(\d{2,3}\.\d{2})%$/);
 			if (val.indexOf('usc') !== -1)
