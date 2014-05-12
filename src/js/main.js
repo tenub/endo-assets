@@ -27,9 +27,9 @@ $(document).ready(function() {
 /**
  *	Directly modify DOM elements to sort nth column of tbl ascending or descending determined by o
  *
- *	@param	object	tbl
- *	@param	integer	n
- *	@param	boolean	o
+ *	@param		{object}	tbl		html table node containing data to sort
+ *	@param		{integer}	n		which column to sort on
+ *	@param		{boolean}	o		determines sort direction
  */
 function sortTable(tbl, n, o) {
 
@@ -39,15 +39,15 @@ function sortTable(tbl, n, o) {
 
 		var row = tbody.rows[i],
 			text = $.trim(row.cells[n].textContent || row.cells[n].innerText).toLowerCase(),
-			sortnr = parseValue(text, row.cells[n].className);
+			val = parseValue(text, row.cells[n].className);
 
-		store.push([sortnr, row]);
+		store.push([val, row]);
 
 	}
 
 	if (o === true) {
 
-		store.sort(function(a,b) {
+		store.sort(function(a, b) {
 
 			if (isNaN(a[0]) && isNaN(b[0])) {
 
@@ -69,7 +69,7 @@ function sortTable(tbl, n, o) {
 
 	} else {
 
-		store.sort(function(a,b) {
+		store.sort(function(a, b) {
 
 			if (isNaN(a[0]) && isNaN(b[0])) {
 
@@ -101,9 +101,9 @@ function sortTable(tbl, n, o) {
 /**
  *	Parse a value based on its type and return a sortable version of the original value
  *
- *	@param	string	val
- *	@param	string	type
- *	@return	mixed	val
+ *	@param		{string}	val		input value
+ *	@param		{string}	type	type of input value
+ *	@returns	{mixed}		sortable value corresponding to the input value
  */
 function parseValue(val, type) {
 

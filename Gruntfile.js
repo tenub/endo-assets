@@ -2,13 +2,13 @@ module.exports = function (grunt) {
 	
 	var pkg = require('./package.json');
 
-	grunt.registerTask('default', ['clean', 'csslint:lax', 'jshint', 'concat', 'autoprefixer', 'mincss', 'uglify', 'ftp-deploy', 'watch']);
-	grunt.registerTask('doc', 'jsdoc:all');
-	grunt.registerTask('test', ['jshint:all']);
+	grunt.registerTask('default', ['clean', 'csslint:lax', 'jshint', 'jsdoc', 'concat', 'autoprefixer', 'mincss', 'uglify', 'ftp-deploy', 'watch']);
+	grunt.registerTask('doc', ['jsdoc']);
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-jsdoc');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-mincss');
@@ -43,6 +43,14 @@ module.exports = function (grunt) {
 				'Gruntfile.js',
 				'src/js/*.js'
 			]
+		},
+		'jsdoc': {
+			dist: {
+				src: ['src/js/*.js'],
+				options: {
+					destination: 'doc'
+				}
+			}
 		},
 		'concat': {
 			css: {

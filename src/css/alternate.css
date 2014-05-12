@@ -165,6 +165,7 @@ tbody tr:hover td
 tfoot td
 {
 	/*background:					#191919*/
+	font-size:					0.9em;
 	height:						0.5em;
 	text-align:					center;
 }
@@ -245,6 +246,36 @@ span.time
 	text-shadow:				1px 1px 0 #000;
 }
 
+.info
+{
+	position:					relative;
+}
+
+.info span
+{
+	background:					#0a0a0a;
+	box-shadow:					0 0 0.5em rgba(0,0,0,0.2),
+								inset 0 1px #3a3a3a;
+	border:						1px solid #000;
+	border-radius:				0.5em;
+	display:					none;
+	color:						#fff;
+	font-size:					0.8rem;
+	margin:						0;
+	padding:					0.5em;
+	position:					absolute;
+	text-align:					left;
+	top:						-50%;
+	white-space:				normal;
+	width:						200px;
+	z-index:					1;
+}
+
+.info:hover span
+{
+	display:					block;
+}
+
 .fa-search:before
 {
 	color:						#5e5e5e;
@@ -317,9 +348,9 @@ th:hover .fa
 	left:						4em;
 }
 
-.players p,
-.server p
+.server li:first-child
 {
+	list-style:					none;
 	margin:						0 0.75em;
 	text-decoration:			underline;
 }
@@ -416,4 +447,9 @@ tr:hover .diff
 									#ff6060 100%,
 									#ff696a 100%
 								);
+}
+
+.footer
+{
+	font-size:					0.7em;
 }
