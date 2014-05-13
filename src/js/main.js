@@ -3,7 +3,7 @@ $(document).ready(function() {
 	/**
 	 *	Add sort icon to all headings with the sort class
 	 */
-	$('<span/>').addClass('fa fa-sort').prependTo($('th.sort'));
+	$('<span/>').addClass('fa fa-sort').appendTo($('th.sort'));
 
 	/**
 	 *	Bind the sortTable function to heading columns with the sort class
