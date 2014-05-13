@@ -2,7 +2,7 @@ module.exports = function (grunt) {
 	
 	var pkg = require('./package.json');
 
-	grunt.registerTask('default', ['clean', 'csslint:lax', 'jshint', 'jsdoc', 'concat', 'autoprefixer', 'mincss', 'uglify', 'ftp-deploy', 'watch']);
+	grunt.registerTask('default', ['clean', 'csslint:lax', 'jshint', 'concat', 'autoprefixer', 'mincss', 'uglify', 'ftp-deploy', 'watch']);
 	grunt.registerTask('doc', ['jsdoc']);
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
@@ -32,7 +32,9 @@ module.exports = function (grunt) {
 					'adjoining-classes': false,
 					'box-sizing': false,
 					'box-model': false,
+					'ids': false,
 					'import': false,
+					'known-properties': false,
 					'outline-none': false
 				},
 				src: ['src/css/*.css']
