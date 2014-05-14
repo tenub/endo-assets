@@ -198,7 +198,7 @@ td li
 
 .logo
 {
-	position:					relative;
+	margin:						-1.25em 0 0 1.75em;
 	text-shadow:				1px 1px 0 #000;
 }
 
@@ -479,15 +479,19 @@ tr:hover .diff
 
 #logo
 {
-	height:						2.70em;
-	margin:						0 auto;
-	transition:					0.5s;
-	width:						2.34em;
+	margin:						0.5em 0;
 }
 
 .logo-inner
 {
 	fill:						#cc4614;
+	transition:					0.5s;
+}
+
+#logo:hover .logo-inner
+{
+	fill:						#cfa;
+	transition:					0.5s;
 }
 
 .logo-inset
@@ -498,10 +502,4 @@ tr:hover .diff
 .logo-outer
 {
 	fill:						#191919;
-}
-
-#logo:hover
-{
-	transform:					rotate(360deg) scale(1.2);
-	transition:					0.5s;
 }
