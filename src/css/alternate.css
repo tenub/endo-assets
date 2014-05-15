@@ -44,7 +44,7 @@ code
 h1
 {
 	font-family:				'Bitter', serif;
-	font-size:					2em;
+	font-size:					3em;
 	margin:						0;
 	text-transform:				lowercase;
 }
@@ -185,6 +185,16 @@ td li
 	margin-left:				0.75em;
 }
 
+header
+{
+	position:					relative;
+}
+
+footer
+{
+	font-size:					0.7em;
+}
+
 
 /**
  * Class definitions
@@ -198,8 +208,12 @@ td li
 
 .logo
 {
-	margin:						-1.25em 0 0 1.75em;
+	font-family:				'Michroma', sans-serif;
+	position:					absolute;
+	text-align:					center;
 	text-shadow:				1px 1px 0 #000;
+	top:						0.56em;
+	width:						100%;
 }
 
 .logo a
@@ -467,11 +481,6 @@ tr:hover .diff
 								);
 }
 
-.footer
-{
-	font-size:					0.7em;
-}
-
 
 /**
  * SVG Definitions
@@ -496,10 +505,10 @@ tr:hover .diff
 
 .logo-inset
 {
-	fill:						#4a4a4a;
+	fill:						#1a1a1a;
 }
 
 .logo-outer
 {
-	fill:						#191919;
+	fill:						#cfa;
 }
