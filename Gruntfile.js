@@ -2,13 +2,14 @@ module.exports = function (grunt) {
 	
 	var pkg = require('./package.json');
 
-	grunt.registerTask('default', ['clean', 'csslint:lax', 'jshint', 'concat', 'autoprefixer', 'mincss', 'uglify', 'ftp-deploy']);
+	grunt.registerTask('default', ['clean', 'csslint:lax', 'jshint', 'mochaTest', 'concat', 'autoprefixer', 'mincss', 'uglify', 'ftp-deploy']);
 	grunt.registerTask('doc', ['jsdoc']);
 	grunt.registerTask('watch', ['watch']);
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-mocha-test');
 	grunt.loadNpmTasks('grunt-jsdoc');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-autoprefixer');
@@ -46,6 +47,14 @@ module.exports = function (grunt) {
 				'Gruntfile.js',
 				'src/js/*.js'
 			]
+		},
+		'mochaTest': {
+			test: {
+				options: {
+					reporter: 'spec'
+				},
+				src: ['test/*.js']
+			}
 		},
 		'jsdoc': {
 			dist: {

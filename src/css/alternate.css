@@ -206,22 +206,6 @@ footer
 	width:						90%;
 }
 
-.logo
-{
-	font-family:				'Michroma', sans-serif;
-	position:					absolute;
-	text-align:					center;
-	text-shadow:				1px 1px 0 #000;
-	top:						0.56em;
-	width:						100%;
-}
-
-.logo a
-{
-	position:					relative;
-	z-index:					1;
-}
-
 .caption
 {
 	width:						2em;
@@ -497,18 +481,19 @@ tr:hover .diff
 	transition:					0.5s;
 }
 
+.logo-outer
+{
+	fill:						#cfa;
+}
+
 #logo:hover .logo-inner
 {
 	fill:						#cfa;
 	transition:					0.5s;
 }
 
-.logo-inset
+#logo:hover .logo-outer
 {
-	fill:						#1a1a1a;
-}
-
-.logo-outer
-{
-	fill:						#cfa;
+	fill:						#cc4614;
+	transition:					0.5s;
 }
