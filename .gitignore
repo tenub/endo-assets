@@ -2,6 +2,7 @@ build/
 dist/
 doc/
 node_modules/
+src/css/
 .DS_Store
 .ftppass
 assets.zip

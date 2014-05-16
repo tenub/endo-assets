@@ -1,7 +1,5 @@
 (function(exports) {
 
-	'use strict';
-
 	function Helper(opts) {
 
 		this.opts = opts || {};
@@ -113,7 +111,8 @@
 
 				case 'when':
 
-					var f = /(?=.)^-(?:(?:[1-9][0-9]*)d\s?)?(?:(?:[1-9]|1[0-9]|2[0-3])h\s?)?(?:(?:[1-9]|[1-5][0-9])m)?$/.test(val);
+					// /^(?=\S)-(?:[1-9][0-9]*d)?(?:(?:^| )(?:1[0-9]?|[3-9]|2[0-3]?)h)?(?:(?:^| )(?:[1-5][0-9]?|[6-9])m)?$/
+					var f = /-?(?:\d+[dhm] ?){1,3}/.test(val);
 
 					if (f) {
 
@@ -145,6 +144,26 @@
 			}
 
 			return val;
+
+		};
+
+		/**
+		 *	Update the contents of a selector element on an interval with server information
+		 *
+		 *	@param		{string}	selector		selector as string
+		 *	@param		{integer}	interval		interval in ms
+		 */
+		this.gsInfo = function(selector, interval) {
+
+			setInterval(function() {
+
+				$.get('http://dev.kz-endo.com/servers', function(data) {
+
+					$(selector).html(data);
+
+				});
+
+			}, interval);
 
 		};
 	

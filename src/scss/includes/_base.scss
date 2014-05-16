@@ -1,0 +1,163 @@
+@mixin body($bgcolor, $bgsize, $color) {
+	$stripe_color: lighten($bgcolor, 1.5%);
+	background: {
+		color: $bgcolor;
+		image: linear-gradient(45deg, $stripe_color 25%, transparent 25%, transparent 50%, $stripe_color 50%, $stripe_color 75%, transparent 75%, transparent);
+		size: $bgsize;
+	}
+	color: $color;
+	font: 100% map-get($fonts, "body"), sans-serif;
+	text-align: center;
+}
+
+@mixin link($color, $hover) {
+	color: $color;
+	display: inline-block;
+	text-decoration: none;
+	transition: 0.5s color;
+	&:hover {
+		color: $hover;
+		transition: 0.5s color;
+	}
+}
+
+/**
+ * Element definitions
+ */
+
+code {
+	display: block;
+	margin: 1em 0;
+}
+
+h1 {
+	font-family: map-get($fonts, "heading"), serif;
+	font-size: 3em;
+	margin: 0;
+	text-transform: lowercase;
+}
+
+p,
+h2 {
+	font-family: map-get($fonts, "heading"), serif;
+}
+
+input:focus,
+select:focus,
+button:focus,
+textarea:focus {
+	outline: none;
+}
+
+input,
+label {
+	box-sizing: border-box;
+	color: #fff;
+	height: 2em;
+	line-height: 2em;
+}
+
+form {
+	margin: 1em 0;
+}
+
+fieldset {
+	border: none;
+}
+
+legend {
+	margin: 1em 0;
+	width: 100%;
+}
+
+input {
+	background: #1e1e1e;
+	box-shadow: 0 0 0.5em rgba(0,0,0,0.2),
+				inset 0 1px #4a4a4a;
+	border: 1px solid #191919;
+	border-radius: 1em;
+	padding: 0 1em;
+}
+
+input:focus {
+	box-shadow: 0 0 0.5em #cfa,
+				inset 0 1px #4a4a4a;
+}
+
+label {
+	background: none;
+	display: inline-block;
+	position: relative;
+}
+
+sup {
+	line-height: 1em;
+	vertical-align: text-top;
+}
+
+table {
+	background: #1e1e1e;
+	box-shadow: 0 0 0.5em rgba(0,0,0,0.2),
+				inset 0 1px #4a4a4a;
+	border: 1px solid #191919;
+	border-collapse: separate;
+	border-radius: 1em;
+	color: #fff;
+	margin: 2em 0;
+	text-align: left;
+	width: 100%;
+}
+
+caption {
+	box-sizing: border-box;
+	font: bold 1.4em map-get($fonts, "heading"), serif;
+	line-height: 1em;
+	margin: 0 0 0.5em 0;
+	padding: 0 1em;
+}
+
+th {
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height: 2.5em;
+	margin: 0;
+	text-align: left;
+	transition: 0.5s color;
+	white-space: nowrap;
+}
+
+td {
+	position: relative;
+	word-break: break-all;
+}
+
+tbody tr:hover td {
+	background: #191919;
+}
+
+tfoot td {
+	font-size: 0.9em;
+	height: 0.5em;
+	text-align: center;
+}
+
+tfoot td:first-child {
+	border-bottom-left-radius: 1em;
+}
+
+tfoot td:last-child {
+	border-bottom-right-radius: 1em;
+}
+
+td li {
+	padding: 0.25em 0;
+	margin-left: 0.75em;
+}
+
+header {
+	position: relative;
+}
+
+footer {
+	font-size: 0.7em;
+}

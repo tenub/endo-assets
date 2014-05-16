@@ -2,11 +2,12 @@ module.exports = function (grunt) {
 	
 	var pkg = require('./package.json');
 
-	grunt.registerTask('default', ['clean', 'csslint:lax', 'jshint', 'mochaTest', 'concat', 'autoprefixer', 'mincss', 'uglify', 'ftp-deploy']);
+	grunt.registerTask('default', ['clean', 'sass', 'csslint:lax', 'jshint', 'mochaTest', 'concat', 'autoprefixer', 'mincss', 'uglify', 'ftp-deploy']);
 	grunt.registerTask('doc', ['jsdoc']);
 	grunt.registerTask('watch', ['watch']);
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-mocha-test');
@@ -21,6 +22,17 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		'clean': {
 			all: ['build', 'dist']
+		},
+		'sass': {
+			dist: {
+				files: [{
+					expand: true,
+					cwd: 'src/scss',
+					src: ['*.scss'],
+					dest: 'src/css',
+					ext: '.css'
+				}]
+			}
 		},
 		'csslint': {
 			strict: {
