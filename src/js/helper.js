@@ -98,7 +98,7 @@
 
 				case 'performance':
 
-					var perc = val.match(/\s+(\d{2,3}\.\d{2})%$/);
+					var perc = val.match(/\s+(\d{2,3}\.\d{2})%$/m);
 
 					if (val.indexOf('usc') !== -1)
 						val = 100;

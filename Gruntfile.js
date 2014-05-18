@@ -17,6 +17,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-mincss');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-ftp-deploy');
+	grunt.loadNpmTasks('grunt-git-deploy');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.initConfig({

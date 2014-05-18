@@ -1,5 +1,5 @@
 var assert = require('assert'),
-	should = require('chai').should(),
+	//should = require('chai').should(),
 	Helper = require('../src/js/helper.js').Helper;
 describe('helper', function() {
 	var h = new Helper();

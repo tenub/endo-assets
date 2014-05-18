@@ -36,6 +36,7 @@ a {
 		list-style: none;
 		margin: 0;
 		padding: 0;
+	}
 		li {
 			display: inline;
 			&:after {
@@ -45,13 +46,12 @@ a {
 				content: "";
 			}
 		}
-	}
 	form {
 		clear: both;
 	}
 }
 
-span.time {
+.wr-time {
 	color: #cc4614;
 	text-shadow: 1px 1px 0 #000;
 }
@@ -96,7 +96,8 @@ span.time {
 	transition: 0.5s color;
 }
 
-.sort, caption {
+caption,
+.sort {
 	&:hover .info span {
 		display: block;
 	}
@@ -158,7 +159,8 @@ th:hover .fa {
 	}
 }
 
-.players, .server {
+.players,
+.server {
 	a:hover ul {
 		display: block;
 	}
@@ -168,35 +170,34 @@ th:hover .fa {
 	margin-left: 0.5em;
 }
 
-tbody .datetime {
-	width: 20%;
-}
-
-tbody .performance {
-	width: 20%;
-}
-
 tbody {
-	.date, .diff {
-		display: block;
-		position: relative;
+	.datetime {
+		width: 20%;
+	}
+	.performance {
+		width: 20%;
 	}
 }
 
 tbody {
-	.perc, .time {
+	.date,
+	.diff {
+		display: block;
+		position: relative;
+	}
+	.perc,
+	.time {
 		display: none;
 	}
 }
 
 tr:hover {
-	.perc, .time {
+	.perc,
+	.time {
 		display: block;
 	}
-}
-
-tr:hover {
-	.date, .diff {
+	.date,
+	.diff {
 		display: none;
 	}
 }

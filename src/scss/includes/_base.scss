@@ -2,7 +2,7 @@
 	$stripe_color: lighten($bgcolor, 1.5%);
 	background: {
 		color: $bgcolor;
-		image: linear-gradient(45deg, $stripe_color 25%, transparent 25%, transparent 50%, $stripe_color 50%, $stripe_color 75%, transparent 75%, transparent);
+		image: linear-gradient(45deg, $stripe_color 25%, $bgcolor 25%, $bgcolor 50%, $stripe_color 50%, $stripe_color 75%, $bgcolor 75%, $bgcolor);
 		size: $bgsize;
 	}
 	color: $color;
@@ -77,11 +77,10 @@ input {
 	border: 1px solid #191919;
 	border-radius: 1em;
 	padding: 0 1em;
-}
-
-input:focus {
-	box-shadow: 0 0 0.5em #cfa,
-				inset 0 1px #4a4a4a;
+	&:focus {
+		box-shadow: 0 0 0.5em #cfa,
+					inset 0 1px #4a4a4a;
+	}
 }
 
 label {
@@ -129,6 +128,10 @@ th {
 td {
 	position: relative;
 	word-break: break-all;
+	li {
+		padding: 0.25em 0;
+		margin-left: 0.75em;
+	}
 }
 
 tbody tr:hover td {
@@ -139,19 +142,12 @@ tfoot td {
 	font-size: 0.9em;
 	height: 0.5em;
 	text-align: center;
-}
-
-tfoot td:first-child {
-	border-bottom-left-radius: 1em;
-}
-
-tfoot td:last-child {
-	border-bottom-right-radius: 1em;
-}
-
-td li {
-	padding: 0.25em 0;
-	margin-left: 0.75em;
+	&:first-child {
+		border-bottom-left-radius: 1em;
+	}
+	&:last-child {
+		border-bottom-right-radius: 1em;
+	}
 }
 
 header {
