@@ -1,5 +1,5 @@
 // Define variables
-$fonts: ("heading": "Bitter", "body": "Gudea");
+$fonts: ("heading": "Roboto Slab", "body": "Ubuntu");
 
 // Import helpers
 @import "includes/base";
@@ -242,26 +242,36 @@ tr:hover {
  */
 
 #logo {
-	margin: 0 0 0.5em;
-	//transform: rotate(-30deg);
+	margin: 0 0 1em;
+	//transform: rotate(30deg);
 }
 
-.logo-inner {
-	fill: #cc4614;
+.logo_1 {
+	fill: #cfa;
 	transition: 0.5s;
 }
 
-.logo-outer {
-	fill: #cfa;
+.logo_2 {
+	fill: #9c7;
+	transition: 0.5s;
+}
+
+.logo_3 {
+	fill: #694;
+	transition: 0.5s;
 }
 
 #logo:hover {
-	.logo-inner {
-		fill: #cfa;
+	.logo_1 {
+		fill: #9c7;
 		transition: 0.5s;
 	}
-	.logo-outer {
-		fill: #cc4614;
+	.logo_2 {
+		fill: #694;
+		transition: 0.5s;
+	}
+	.logo_3 {
+		fill: #cfa;
 		transition: 0.5s;
 	}
 }
