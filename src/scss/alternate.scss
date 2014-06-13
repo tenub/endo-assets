@@ -1,5 +1,5 @@
 // Define variables
-$fonts: ("heading": "Roboto Slab", "body": "Ubuntu");
+$fonts: ("heading": "Roboto Slab", "body": "Ubuntu", "mono": "Ubuntu Mono");
 
 // Import helpers
 @import "includes/base";
@@ -236,13 +236,18 @@ tr:hover {
 	background: linear-gradient(to left, #ce6aff 0%, #c961fc 0%, #5fffff 34%, #66f962 65%, #ff6060 100%, #ff696a 100%);
 }
 
+.number {
+	word-break: normal;
+}
+
 
 /**
  * SVG Definitions
  */
 
 #logo {
-	margin: 0 0 1em;
+	border: 1px solid #191919;
+	margin-bottom: 0.75em;
 	//transform: rotate(30deg);
 }
 
