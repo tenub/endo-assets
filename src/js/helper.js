@@ -139,6 +139,8 @@
 
 				default:
 
+					val = val.replace(/\D/g, '');
+
 					break;
 
 			}

@@ -92,10 +92,7 @@ sup {
 }
 
 table {
-	background: #1e1e1e;
-	border: 1px solid #191919;
 	border-collapse: separate;
-	border-radius: 1em;
 	color: #fff;
 	margin: 2em 0;
 	text-align: left;
@@ -111,6 +108,7 @@ caption {
 }
 
 th {
+	background: #1e1e1e;
 	font-size: 1.2em;
 	font-weight: bold;
 	line-height: 2.5em;
@@ -121,11 +119,18 @@ th {
 }
 
 td {
+	background: #1e1e1e;
 	position: relative;
 	word-break: break-all;
 	li {
 		padding: 0.25em 0;
 		margin-left: 0.75em;
+	}
+	&:first-child {
+		border-left: 1px solid #191919;
+	}
+	&:last-child {
+		border-right: 1px solid #191919;
 	}
 }
 
@@ -133,15 +138,21 @@ tbody tr:hover td {
 	background: #191919;
 }
 
-tfoot td {
-	font-size: 0.9em;
-	height: 0.5em;
-	text-align: center;
-	&:first-child {
-		border-bottom-left-radius: 1em;
-	}
-	&:last-child {
-		border-bottom-right-radius: 1em;
+tfoot {
+	td {
+		background: #1e1e1e;
+		border-bottom: 1px solid #191919;
+		font-size: 0.9em;
+		height: 0.5em;
+		text-align: center;
+		&:first-child {
+			border-left: 1px solid #191919;
+			border-bottom-left-radius: 1em;
+		}
+		&:last-child {
+			border-right: 1px solid #191919;
+			border-bottom-right-radius: 1em;
+		}
 	}
 }
 
