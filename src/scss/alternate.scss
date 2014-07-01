@@ -280,3 +280,48 @@ tr:hover {
 		transition: 0.5s;
 	}
 }
+
+/*.tbl-wrap {
+	position: relative;
+	.tbl-scroll {
+		overflow: auto;
+		height: 400px;
+		margin-top: 2em;
+		caption,
+		thead {
+			position: absolute;
+			left: 0;
+			z-index: 2;
+		}
+		caption {
+			top: -4.5em;
+		}
+		thead {
+			top: -2em;
+		}
+		table {
+			margin: 0;
+		}
+		.number {
+			width: 10%;
+		}
+		.name {
+			width: 30%;
+		}
+		.points {
+			width: 12.5%;
+		}
+		.percent {
+			width: 12.5%;
+		}
+		.ranked {
+			width: 12.5%;
+		}
+		.average {
+			width: 12.5%;
+		}
+		.uwrs {
+			width: 10%;
+		}
+	}
+}*/
