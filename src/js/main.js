@@ -20,8 +20,13 @@ $(document).ready(function() {
 	 *	Prevent searching with input that is less than two characters in length
 	 */
 	$('form').submit(function() {
-		if ($.trim($('#search').val()).length < 2)
+		if ($.trim($('#search').val()).length < 2) {
 			return false;
+		}
+	});
+
+	$('a[href^="delete/"]').on('click', function() {
+		return helper.confirmDelete('Really delete the record?');
 	});
 
 });

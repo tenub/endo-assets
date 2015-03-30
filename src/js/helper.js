@@ -75,7 +75,7 @@
 				tbody.appendChild(store[i][1]);
 
 			store = null;
-			
+
 		};
 
 		/**
@@ -168,7 +168,19 @@
 			}, interval);
 
 		};
-	
+
+		/**
+		 *	Confirm call to delete from records database
+		 *
+		 *	@param		{string}	message
+		 *	@return		{boolean}	confirmation
+		 */
+		this.confirmDelete = function(message) {
+
+			return window.confirm(message);
+
+		};
+
 	}
 
 	exports.Helper = Helper;
