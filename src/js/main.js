@@ -19,14 +19,19 @@ $(document).ready(function() {
 	/**
 	 *	Prevent searching with input that is less than two characters in length
 	 */
-	$('form').submit(function() {
-		if ($.trim($('#search').val()).length < 2) {
+	$('#search').submit(function() {
+		if ($.trim($('#search-btn').val()).length < 2) {
 			return false;
 		}
 	});
 
 	$('a[href^="delete/"]').on('click', function() {
-		return helper.confirmDelete('Really delete the record?');
+		if (helper.confirmDelete('Really delete the record?')) {
+			$(this).parents('tr').addClass('deleted');
+			return true;
+		} else {
+			return false;
+		}
 	});
 
 });

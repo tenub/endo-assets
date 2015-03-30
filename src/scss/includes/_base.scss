@@ -62,7 +62,6 @@ input,
 label {
 	box-sizing: border-box;
 	color: #fff;
-	height: 2em;
 	line-height: 2em;
 }
 
@@ -145,12 +144,27 @@ td {
 	}
 }
 
-tbody tr td {
-	&:first-child {
-		border-left: 1px solid #191919;
+tbody tr {
+	transition: all .5s;
+	td {
+		&:first-child {
+			border-left: 1px solid #191919;
+		}
+		&:last-child {
+			border-right: 1px solid #191919;
+		}
 	}
-	&:last-child {
-		border-right: 1px solid #191919;
+}
+
+tbody .deleted td {
+	height: 0;
+	line-height: 0;
+	font-size: 0;
+	background: #cc4614;
+	visibility: hidden;
+	transition: all .5s;
+	.meter {
+		border: none;
 	}
 }
 
