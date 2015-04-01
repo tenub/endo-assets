@@ -181,6 +181,48 @@
 
 		};
 
+		/**
+		 *	Attempt to delete a record from database
+		 *
+		 *	@param		{object}	link
+		 *	@return		{boolean}	success
+		 */
+		this.deleteRecord = function(link) {
+
+			var $link = $(link);
+
+			console.log(this.getHashParams(link.hash));
+
+			if (this.confirmDelete('Really delete the record?')) {
+				$.post('/delete', this.getHashParams, function(data) {
+					$link.parents('tr').remove();
+				});
+				return true;
+			} else {
+				return false;
+			}
+
+		};
+
+		/**
+		 *	Parse hash parameters into json object form
+		 *
+		 *	@param		{string}	uri
+		 *	@return		{object}	json
+		 */
+		this.getHashParams = function(uri) {
+
+			var match,
+				params = {};
+
+			while ((match = /([^=]+)=([^&]*)/g.exec(uri)) !== null) {
+				params[match[1]] = match[2];
+			}
+
+			return JSON.stringify(params);
+
+		};
+
 	}
 
 	exports.Helper = Helper;

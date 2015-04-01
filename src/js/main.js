@@ -25,13 +25,9 @@ $(document).ready(function() {
 		}
 	});
 
-	$('a[href^="delete/"]').on('click', function() {
-		if (helper.confirmDelete('Really delete the record?')) {
-			$(this).parents('tr').addClass('deleted');
-			return true;
-		} else {
-			return false;
-		}
+	$('a.delete').on('click', function(e) {
+		e.preventDefault();
+		helper.deleteRecord(this);
 	});
 
 });
