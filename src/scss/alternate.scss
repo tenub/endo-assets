@@ -3,6 +3,8 @@ $fonts: ("heading": "Roboto Slab", "body": "Ubuntu", "mono": "Ubuntu Mono");
 
 // Import helpers
 @import "includes/base";
+@import "includes/flags";
+@import "includes/responsive";
 
 // Define custom base elements
 body {

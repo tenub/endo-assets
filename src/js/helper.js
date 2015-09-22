@@ -1,230 +1,198 @@
-(function(exports) {
-
-	function Helper(opts) {
-
-		this.opts = opts || {};
-
+(function (exports) {
+	function Helper () {
 		/**
-		 *	Directly modify DOM elements to sort nth column of tbl ascending or descending determined by o
+		 * Directly modify DOM elements to sort nth column of tbl ascending or descending determined by o
 		 *
-		 *	@param		{object}	tbl		html table node containing data to sort
-		 *	@param		{integer}	n		which column to sort on
-		 *	@param		{boolean}	o		determines sort direction
+		 * @param {object} tbl - html table node containing data to sort
+		 * @param {integer} n - which column to sort on
+		 * @param {boolean} o - determines sort direction
 		 */
-		this.sortTable = function(tbl, n, o) {
+		this.sortTable = function (tbl, n, o) {
+			var i
+				, l
+				, store = []
+				, tbody = tbl.tBodies[0]
+				, row
+				, text
+				, val
+				;
 
-			var i, l, store = [], tbody = tbl.tBodies[0];
-
-			for (i=0, l=tbody.rows.length; i<l; i++) {
-
-				var row = tbody.rows[i],
-					text = (row.cells[n].textContent || row.cells[n].innerText).toLowerCase(),
-					val = this.parseValue(text, row.cells[n].className);
+			for (i = 0, l = tbody.rows.length; i < l; i++) {
+				row = tbody.rows[i];
+				text = (row.cells[n].textContent || row.cells[n].innerText).toLowerCase();
+				val = this.parseValue(text, row.cells[n].className);
 
 				store.push([val, row]);
-
 			}
 
 			if (o === true) {
-
-				store.sort(function(a, b) {
-
+				store.sort(function (a, b) {
 					if (isNaN(a[0]) && isNaN(b[0])) {
-
-						if (a[0] < b[0])
+						if (a[0] < b[0]) {
 							return -1;
+						}
 
-						if (a[0] > b[0])
+						if (a[0] > b[0]) {
 							return 1;
+						}
 
 						return 0;
-
-					} else {
-
-						return a[0] - b[0];
-
 					}
 
+					return a[0] - b[0];
 				});
-
 			} else {
-
-				store.sort(function(a, b) {
-
+				store.sort(function (a, b) {
 					if (isNaN(a[0]) && isNaN(b[0])) {
-
-						if (a[0] < b[0])
+						if (a[0] < b[0]) {
 							return 1;
+						}
 
-						if (a[0] > b[0])
+						if (a[0] > b[0]) {
 							return -1;
+						}
 
 						return 0;
-
-					} else {
-
-						return b[0] - a[0];
-
 					}
 
+					return b[0] - a[0];
 				});
-
 			}
 
-			for (i=0, l=store.length; i<l; i++)
+			for (i = 0, l = store.length; i < l; i++) {
 				tbody.appendChild(store[i][1]);
+			}
 
 			store = null;
-
 		};
 
 		/**
-		 *	Parse a value based on its type and return a sortable version of the original value
+		 * Parse a value based on its type and return a sortable version of the original value
 		 *
-		 *	@param		{string}	val		input value
-		 *	@param		{string}	type	type of input value
-		 *	@returns	{mixed}		sortable value corresponding to the input value
+		 * @param {string} val - input value
+		 * @param {string} type - type of input value
+		 * @return {mixed} sortable value corresponding to the input value
 		 */
-		this.parseValue = function(val, type) {
+		this.parseValue = function (val, type) {
+			var perc
+				, d
+				, h
+				, m;
 
 			switch (type) {
-
 				case 'avg-rank':
-
-					if (val === 'n/a')
+					if (val === 'n/a') {
 						val = 9999;
-
+					}
 					break;
 
 				case 'performance':
+					perc = val.match(/\s+(\d{2,3}\.\d{2})%$/m);
 
-					var perc = val.match(/\s+(\d{2,3}\.\d{2})%$/m);
-
-					if (val.indexOf('usc') !== -1)
+					if (val.indexOf('usc') !== -1) {
 						val = 100;
-					else if (!perc)
+					} else if (!perc) {
 						val = 0;
-					else
+					} else {
 						val = parseFloat(perc[1], 10);
-
+					}
 					break;
 
 				case 'when':
-
 					// /^(?=\S)-(?:[1-9][0-9]*d)?(?:(?:^| )(?:1[0-9]?|[3-9]|2[0-3]?)h)?(?:(?:^| )(?:[1-5][0-9]?|[6-9])m)?$/
-					var f = /-?(?:\d+[dhm] ?){1,3}/.test(val);
+					if (/-?(?:\d+[dhm] ?){1,3}/.test(val)) {
+						d = val.match(/\d+(?=d)/);
+						h = val.match(/\d+(?=h)/);
+						m = val.match(/\d+(?=m)/);
 
-					if (f) {
+						if (m) {
+							m = parseInt(m);
+						}
 
-						var d = val.match(/\d+(?=d)/),
-							h = val.match(/\d+(?=h)/),
-							m = val.match(/\d+(?=m)/);
+						if (h) {
+							m += parseInt(h) * 60;
+						}
 
-						if (m)
-							m = parseInt(m, 10);
-						if (h)
-							m += parseInt(h, 10) * 60;
-						if (d)
-							m += parseInt(d, 10) * 1440;
+						if (d) {
+							m += parseInt(d) * 1440;
+						}
 
 						val = m;
-
 					} else {
-
 						val = false;
-
 					}
-
 					break;
 
 				default:
-
 					val = val.replace(/\D/g, '');
-
 					break;
-
 			}
 
 			return val;
-
 		};
 
 		/**
-		 *	Update the contents of a selector element on an interval with server information
+		 * Update the contents of a selector element on an interval with server information
 		 *
-		 *	@param		{string}	selector		selector as string
-		 *	@param		{integer}	interval		interval in ms
+		 * @param {string} selector - selector as string
+		 * @param {integer} interval - interval in ms
 		 */
-		this.gsInfo = function(selector, interval) {
-
-			setInterval(function() {
-
-				$.get('http://dev.kz-endo.com/servers', function(data) {
-
+		this.gsInfo = function (selector, interval) {
+			setInterval(function () {
+				$.get('http://dev.kz-endo.com/servers', function (data) {
 					$(selector).html(data);
-
 				});
-
 			}, interval);
-
 		};
 
 		/**
-		 *	Confirm call to delete from records database
+		 * Confirm call to delete from records database
 		 *
-		 *	@param		{string}	message
-		 *	@return		{boolean}	confirmation
+		 * @param {string} message
+		 * @return {boolean} confirmation
 		 */
-		this.confirmDelete = function(message) {
-
+		this.confirmDelete = function (message) {
 			return window.confirm(message);
-
 		};
 
 		/**
-		 *	Attempt to delete a record from database
+		 * Attempt to delete a record from database
 		 *
-		 *	@param		{object}	link
-		 *	@return		{boolean}	success
+		 * @param {object} link
+		 * @return {boolean} success
 		 */
-		this.deleteRecord = function(link) {
-
+		this.deleteRecord = function (link) {
 			var $link = $(link);
 
-			console.log(this.getHashParams(link.hash));
-
 			if (this.confirmDelete('Really delete the record?')) {
-				$.post('/delete', this.getHashParams, function(data) {
+				$.post('/delete', this.getHashParams, function (data) {
 					$link.parents('tr').remove();
 				});
+
 				return true;
-			} else {
-				return false;
 			}
 
+			return false;
 		};
 
 		/**
-		 *	Parse hash parameters into json object form
+		 * Parse hash parameters into json object form
 		 *
-		 *	@param		{string}	uri
-		 *	@return		{object}	json
+		 * @param {string} uri
+		 * @return {object} json
 		 */
-		this.getHashParams = function(uri) {
-
-			var match,
-				params = {};
+		this.getHashParams = function (uri) {
+			var match
+				, params = {}
+				;
 
 			while ((match = /([^=]+)=([^&]*)/g.exec(uri)) !== null) {
 				params[match[1]] = match[2];
 			}
 
 			return JSON.stringify(params);
-
 		};
-
 	}
 
 	exports.Helper = Helper;
-
 })(this);

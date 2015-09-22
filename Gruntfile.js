@@ -1,38 +1,35 @@
 module.exports = function (grunt) {
-	
-	var pkg = require('./package.json');
+	require('load-grunt-tasks')(grunt);
 
-	grunt.registerTask('default', ['clean', 'sass', 'csslint:lax', 'jshint', 'mochaTest', 'concat', 'autoprefixer', 'mincss', 'uglify', 'ftp-deploy']);
-	grunt.registerTask('doc', ['jsdoc']);
-	grunt.registerTask('watch', ['watch']);
-
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-contrib-csslint');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-mocha-test');
-	grunt.loadNpmTasks('grunt-jsdoc');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-autoprefixer');
-	grunt.loadNpmTasks('grunt-contrib-mincss');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-ftp-deploy');
-	grunt.loadNpmTasks('grunt-git-deploy');
-	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.registerTask('default', ['clean', 'csslint:lax', 'jshint', 'sass', 'concat', 'autoprefixer', 'cleanempty', 'cssmin', 'uglify']);
+	grunt.registerTask('deploy', ['sftp-deploy']);
 
 	grunt.initConfig({
-		'clean': {
-			all: ['build', 'dist']
+		'autoprefixer': {
+			options: {
+				browsers: ['last 2 versions']
+			},
+			no_dest: {
+				src: 'build/css/main.css'
+			}
 		},
-		'sass': {
-			dist: {
-				files: [{
-					expand: true,
-					cwd: 'src/scss',
-					src: ['*.scss'],
-					dest: 'src/css',
-					ext: '.css'
-				}]
+		'clean': {
+			all: ['build/', 'dist/']
+		},
+		'cleanempty': {
+			options: {
+				noJunk: true
+			},
+			src: ['build/**', 'dist/**'],
+		},
+		'concat': {
+			css: {
+				src: ['build/css/*.css', 'src/**/*.css'],
+				dest: 'build/css/main.css'
+			},
+			js: {
+				src: ['src/**/*.js'],
+				dest: 'build/js/main.js'
 			}
 		},
 		'csslint': {
@@ -40,90 +37,60 @@ module.exports = function (grunt) {
 				options: {
 					'import': 2
 				},
-				src: ['src/css/*.css']
+				src: ['src/**/*.css']
 			},
 			lax: {
 				options: {
-					'adjoining-classes': false,
 					'box-sizing': false,
 					'box-model': false,
+					'floats': false,
 					'font-sizes': false,
 					'ids': false,
 					'import': false,
-					'known-properties': false,
-					'outline-none': false
+					'qualified-headings': false,
+					'regex-selectors': false,
+					'unique-headings': false
 				},
-				src: ['src/css/*.css']
+				src: ['src/**/*.css']
+			}
+		},
+		'cssmin': {
+			compress: {
+				files: {
+					'dist/css/main.min.css': ['build/css/main.css']
+				}
 			}
 		},
 		'jshint': {
-			all: [
-				'Gruntfile.js',
-				'src/js/*.js'
-			]
-		},
-		'mochaTest': {
-			test: {
-				options: {
-					reporter: 'spec'
+			options: {
+				browser: true,
+				globals: {
+					jQuery: true
 				},
-				src: ['test/*.js']
-			}
-		},
-		'jsdoc': {
-			dist: {
-				src: ['src/js/*.js'],
-				options: {
-					destination: 'doc'
-				}
-			}
-		},
-		'concat': {
-			css: {
-				src: 'src/css/*.css',
-				dest: 'build/css/main.css'
+				laxcomma: true
 			},
-			js: {
-				src: [
-					'src/js/*.js'
-				],
-				dest: 'build/js/main.js'
+			all: ['Gruntfile.js', 'src/**/*.js']
+		},
+		'sass': {
+			dist: {
+				options: {
+					sourcemap: 'none'
+				},
+				files: [{
+					expand: true,
+					flatten: true,
+					cwd: 'src/',
+					src: ['**/*.scss'],
+					dest: 'build/css/',
+					ext: '.css'
+				}]
 			}
 		},
-		'autoprefixer': {
-			no_dest: {
-				src: 'build/css/main.css'
-			}
-		},
-		'mincss': {
-			compress: {
-				files: {
-					'dist/css/main.min.css': [
-						'build/css/main.css'
-					]
-				}
-			}
-		},
-		'uglify': {
-			js: {
-				files: {
-					'dist/js/main.min.js': [
-						'build/js/main.js'
-					]
-				}
-			}
-		},
-		'zip': {
-			assets: {
-				src: ['build/**', 'dist/**', 'node_modules/**', 'src/**', 'Gruntfile.js', 'package.json'],
-				dest: 'assets.zip'
-			}
-		},
-		'ftp-deploy': {
+		'sftp-deploy': {
 			build: {
 				auth: {
 					host: 'kz-endo.com',
-					port: 21,
+					port: 22,
 					authKey: 'key1'
 				},
 				src: 'dist',
@@ -132,10 +99,12 @@ module.exports = function (grunt) {
 				server_sep: '/'
 			}
 		},
-		'watch': {
-			files: ['src/**'],
-			tasks: ['default']
+		'uglify': {
+			dist: {
+				files: {
+					'dist/js/main.min.js': ['build/js/main.js']
+				}
+			}
 		}
 	});
-
 };
