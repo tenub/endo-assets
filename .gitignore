@@ -1,3 +1,4 @@
+.grunt/
 .sass-cache/
 build/
 dist/

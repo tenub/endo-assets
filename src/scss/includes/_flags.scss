@@ -1,259 +1,512 @@
-.flag {
-	display: inline-block;
-	width: 16px;
-	height: 11px;
-	margin: 0 0.1em;
-	background:url(../img/flags.png) no-repeat
+.wr {
+	&[data-country]:after {
+		content: '';
+		display: inline-block;
+		width: 16px;
+		height: 11px;
+		margin-left: 0.5em;
+		background: url(../img/flags.png) no-repeat;
+	}
+	&[data-country='ad']:after {
+		background-position: -16px 0; }
+	&[data-country='ae']:after {
+		background-position: -32px 0; }
+	&[data-country='af']:after {
+		background-position: -48px 0; }
+	&[data-country='ag']:after {
+		background-position: -64px 0; }
+	&[data-country='ai']:after {
+		background-position: -80px 0; }
+	&[data-country='al']:after {
+		background-position: -96px 0; }
+	&[data-country='am']:after {
+		background-position: -112px 0; }
+	&[data-country='an']:after {
+		background-position: -128px 0; }
+	&[data-country='ao']:after {
+		background-position: -144px 0; }
+	&[data-country='ar']:after {
+		background-position: -160px 0; }
+	&[data-country='as']:after {
+		background-position: -176px 0; }
+	&[data-country='at']:after {
+		background-position: -192px 0; }
+	&[data-country='au']:after {
+		background-position: -208px 0; }
+	&[data-country='aw']:after {
+		background-position: -224px 0; }
+	&[data-country='az']:after {
+		background-position: -240px 0; }
+	&[data-country='ba']:after {
+		background-position: 0 -11px; }
+	&[data-country='bb']:after {
+		background-position: -16px -11px; }
+	&[data-country='bd']:after {
+		background-position: -32px -11px; }
+	&[data-country='be']:after {
+		background-position: -48px -11px; }
+	&[data-country='bf']:after {
+		background-position: -64px -11px; }
+	&[data-country='bg']:after {
+		background-position: -80px -11px; }
+	&[data-country='bh']:after {
+		background-position: -96px -11px; }
+	&[data-country='bi']:after {
+		background-position: -112px -11px; }
+	&[data-country='bj']:after {
+		background-position: -128px -11px; }
+	&[data-country='bm']:after {
+		background-position: -144px -11px; }
+	&[data-country='bn']:after {
+		background-position: -160px -11px; }
+	&[data-country='bo']:after {
+		background-position: -176px -11px; }
+	&[data-country='br']:after {
+		background-position: -192px -11px; }
+	&[data-country='bs']:after {
+		background-position: -208px -11px; }
+	&[data-country='bt']:after {
+		background-position: -224px -11px; }
+	&[data-country='bv']:after {
+		background-position: -240px -11px; }
+	&[data-country='bw']:after {
+		background-position: 0 -22px; }
+	&[data-country='by']:after {
+		background-position: -16px -22px; }
+	&[data-country='bz']:after {
+		background-position: -32px -22px; }
+	&[data-country='ca']:after {
+		background-position: -48px -22px; }
+	&[data-country='catalonia']:after {
+		background-position: -64px -22px; }
+	&[data-country='cd']:after {
+		background-position: -80px -22px; }
+	&[data-country='cf']:after {
+		background-position: -96px -22px; }
+	&[data-country='cg']:after {
+		background-position: -112px -22px; }
+	&[data-country='ch']:after {
+		background-position: -128px -22px; }
+	&[data-country='ci']:after {
+		background-position: -144px -22px; }
+	&[data-country='ck']:after {
+		background-position: -160px -22px; }
+	&[data-country='cl']:after {
+		background-position: -176px -22px; }
+	&[data-country='cm']:after {
+		background-position: -192px -22px; }
+	&[data-country='cn']:after {
+		background-position: -208px -22px; }
+	&[data-country='co']:after {
+		background-position: -224px -22px; }
+	&[data-country='cr']:after {
+		background-position: -240px -22px; }
+	&[data-country='cu']:after {
+		background-position: 0 -33px; }
+	&[data-country='cv']:after {
+		background-position: -16px -33px; }
+	&[data-country='cw']:after {
+		background-position: -32px -33px; }
+	&[data-country='cy']:after {
+		background-position: -48px -33px; }
+	&[data-country='cz']:after {
+		background-position: -64px -33px; }
+	&[data-country='de']:after {
+		background-position: -80px -33px; }
+	&[data-country='dj']:after {
+		background-position: -96px -33px; }
+	&[data-country='dk']:after {
+		background-position: -112px -33px; }
+	&[data-country='dm']:after {
+		background-position: -128px -33px; }
+	&[data-country='do']:after {
+		background-position: -144px -33px; }
+	&[data-country='dz']:after {
+		background-position: -160px -33px; }
+	&[data-country='ec']:after {
+		background-position: -176px -33px; }
+	&[data-country='ee']:after {
+		background-position: -192px -33px; }
+	&[data-country='eg']:after {
+		background-position: -208px -33px; }
+	&[data-country='eh']:after {
+		background-position: -224px -33px; }
+	&[data-country='england']:after {
+		background-position: -240px -33px; }
+	&[data-country='er']:after {
+		background-position: 0 -44px; }
+	&[data-country='es']:after {
+		background-position: -16px -44px; }
+	&[data-country='et']:after {
+		background-position: -32px -44px; }
+	&[data-country='eu']:after {
+		background-position: -48px -44px; }
+	&[data-country='fi']:after {
+		background-position: -64px -44px; }
+	&[data-country='fj']:after {
+		background-position: -80px -44px; }
+	&[data-country='fk']:after {
+		background-position: -96px -44px; }
+	&[data-country='fm']:after {
+		background-position: -112px -44px; }
+	&[data-country='fo']:after {
+		background-position: -128px -44px; }
+	&[data-country='fr']:after {
+		background-position: -144px -44px; }
+	&[data-country='ga']:after {
+		background-position: -160px -44px; }
+	&[data-country='gb']:after {
+		background-position: -176px -44px; }
+	&[data-country='gd']:after {
+		background-position: -192px -44px; }
+	&[data-country='ge']:after {
+		background-position: -208px -44px; }
+	&[data-country='gf']:after {
+		background-position: -224px -44px; }
+	&[data-country='gg']:after {
+		background-position: -240px -44px; }
+	&[data-country='gh']:after {
+		background-position: 0 -55px; }
+	&[data-country='gi']:after {
+		background-position: -16px -55px; }
+	&[data-country='gl']:after {
+		background-position: -32px -55px; }
+	&[data-country='gm']:after {
+		background-position: -48px -55px; }
+	&[data-country='gn']:after {
+		background-position: -64px -55px; }
+	&[data-country='gp']:after {
+		background-position: -80px -55px; }
+	&[data-country='gq']:after {
+		background-position: -96px -55px; }
+	&[data-country='gr']:after {
+		background-position: -112px -55px; }
+	&[data-country='gs']:after {
+		background-position: -128px -55px; }
+	&[data-country='gt']:after {
+		background-position: -144px -55px; }
+	&[data-country='gu']:after {
+		background-position: -160px -55px; }
+	&[data-country='gw']:after {
+		background-position: -176px -55px; }
+	&[data-country='gy']:after {
+		background-position: -192px -55px; }
+	&[data-country='hk']:after {
+		background-position: -208px -55px; }
+	&[data-country='hm']:after {
+		background-position: -224px -55px; }
+	&[data-country='hn']:after {
+		background-position: -240px -55px; }
+	&[data-country='hr']:after {
+		background-position: 0 -66px; }
+	&[data-country='ht']:after {
+		background-position: -16px -66px; }
+	&[data-country='hu']:after {
+		background-position: -32px -66px; }
+	&[data-country='ic']:after {
+		background-position: -48px -66px; }
+	&[data-country='id']:after {
+		background-position: -64px -66px; }
+	&[data-country='ie']:after {
+		background-position: -80px -66px; }
+	&[data-country='il']:after {
+		background-position: -96px -66px; }
+	&[data-country='im']:after {
+		background-position: -112px -66px; }
+	&[data-country='in']:after {
+		background-position: -128px -66px; }
+	&[data-country='io']:after {
+		background-position: -144px -66px; }
+	&[data-country='iq']:after {
+		background-position: -160px -66px; }
+	&[data-country='ir']:after {
+		background-position: -176px -66px; }
+	&[data-country='is']:after {
+		background-position: -192px -66px; }
+	&[data-country='it']:after {
+		background-position: -208px -66px; }
+	&[data-country='je']:after {
+		background-position: -224px -66px; }
+	&[data-country='jm']:after {
+		background-position: -240px -66px; }
+	&[data-country='jo']:after {
+		background-position: 0 -77px; }
+	&[data-country='jp']:after {
+		background-position: -16px -77px; }
+	&[data-country='ke']:after {
+		background-position: -32px -77px; }
+	&[data-country='kg']:after {
+		background-position: -48px -77px; }
+	&[data-country='kh']:after {
+		background-position: -64px -77px; }
+	&[data-country='ki']:after {
+		background-position: -80px -77px; }
+	&[data-country='km']:after {
+		background-position: -96px -77px; }
+	&[data-country='kn']:after {
+		background-position: -112px -77px; }
+	&[data-country='kp']:after {
+		background-position: -128px -77px; }
+	&[data-country='kr']:after {
+		background-position: -144px -77px; }
+	&[data-country='kurdistan']:after {
+		background-position: -160px -77px; }
+	&[data-country='kw']:after {
+		background-position: -176px -77px; }
+	&[data-country='ky']:after {
+		background-position: -192px -77px; }
+	&[data-country='kz']:after {
+		background-position: -208px -77px; }
+	&[data-country='la']:after {
+		background-position: -224px -77px; }
+	&[data-country='lb']:after {
+		background-position: -240px -77px; }
+	&[data-country='lc']:after {
+		background-position: 0 -88px; }
+	&[data-country='li']:after {
+		background-position: -16px -88px; }
+	&[data-country='lk']:after {
+		background-position: -32px -88px; }
+	&[data-country='lr']:after {
+		background-position: -48px -88px; }
+	&[data-country='ls']:after {
+		background-position: -64px -88px; }
+	&[data-country='lt']:after {
+		background-position: -80px -88px; }
+	&[data-country='lu']:after {
+		background-position: -96px -88px; }
+	&[data-country='lv']:after {
+		background-position: -112px -88px; }
+	&[data-country='ly']:after {
+		background-position: -128px -88px; }
+	&[data-country='ma']:after {
+		background-position: -144px -88px; }
+	&[data-country='mc']:after {
+		background-position: -160px -88px; }
+	&[data-country='md']:after {
+		background-position: -176px -88px; }
+	&[data-country='me']:after {
+		background-position: -192px -88px; }
+	&[data-country='mg']:after {
+		background-position: -208px -88px; }
+	&[data-country='mh']:after {
+		background-position: -224px -88px; }
+	&[data-country='mk']:after {
+		background-position: -240px -88px; }
+	&[data-country='ml']:after {
+		background-position: 0 -99px; }
+	&[data-country='mm']:after {
+		background-position: -16px -99px; }
+	&[data-country='mn']:after {
+		background-position: -32px -99px; }
+	&[data-country='mo']:after {
+		background-position: -48px -99px; }
+	&[data-country='mp']:after {
+		background-position: -64px -99px; }
+	&[data-country='mq']:after {
+		background-position: -80px -99px; }
+	&[data-country='mr']:after {
+		background-position: -96px -99px; }
+	&[data-country='ms']:after {
+		background-position: -112px -99px; }
+	&[data-country='mt']:after {
+		background-position: -128px -99px; }
+	&[data-country='mu']:after {
+		background-position: -144px -99px; }
+	&[data-country='mv']:after {
+		background-position: -160px -99px; }
+	&[data-country='mw']:after {
+		background-position: -176px -99px; }
+	&[data-country='mx']:after {
+		background-position: -192px -99px; }
+	&[data-country='my']:after {
+		background-position: -208px -99px; }
+	&[data-country='mz']:after {
+		background-position: -224px -99px; }
+	&[data-country='na']:after {
+		background-position: -240px -99px; }
+	&[data-country='nc']:after {
+		background-position: 0 -110px; }
+	&[data-country='ne']:after {
+		background-position: -16px -110px; }
+	&[data-country='nf']:after {
+		background-position: -32px -110px; }
+	&[data-country='ng']:after {
+		background-position: -48px -110px; }
+	&[data-country='ni']:after {
+		background-position: -64px -110px; }
+	&[data-country='nl']:after {
+		background-position: -80px -110px; }
+	&[data-country='no']:after {
+		background-position: -96px -110px; }
+	&[data-country='np']:after {
+		background-position: -112px -110px; }
+	&[data-country='nr']:after {
+		background-position: -128px -110px; }
+	&[data-country='nu']:after {
+		background-position: -144px -110px; }
+	&[data-country='nz']:after {
+		background-position: -160px -110px; }
+	&[data-country='om']:after {
+		background-position: -176px -110px; }
+	&[data-country='pa']:after {
+		background-position: -192px -110px; }
+	&[data-country='pe']:after {
+		background-position: -208px -110px; }
+	&[data-country='pf']:after {
+		background-position: -224px -110px; }
+	&[data-country='pg']:after {
+		background-position: -240px -110px; }
+	&[data-country='ph']:after {
+		background-position: 0 -121px; }
+	&[data-country='pk']:after {
+		background-position: -16px -121px; }
+	&[data-country='pl']:after {
+		background-position: -32px -121px; }
+	&[data-country='pm']:after {
+		background-position: -48px -121px; }
+	&[data-country='pn']:after {
+		background-position: -64px -121px; }
+	&[data-country='pr']:after {
+		background-position: -80px -121px; }
+	&[data-country='ps']:after {
+		background-position: -96px -121px; }
+	&[data-country='pt']:after {
+		background-position: -112px -121px; }
+	&[data-country='pw']:after {
+		background-position: -128px -121px; }
+	&[data-country='py']:after {
+		background-position: -144px -121px; }
+	&[data-country='qa']:after {
+		background-position: -160px -121px; }
+	&[data-country='re']:after {
+		background-position: -176px -121px; }
+	&[data-country='ro']:after {
+		background-position: -192px -121px; }
+	&[data-country='rs']:after {
+		background-position: -208px -121px; }
+	&[data-country='ru']:after {
+		background-position: -224px -121px; }
+	&[data-country='rw']:after {
+		background-position: -240px -121px; }
+	&[data-country='sa']:after {
+		background-position: 0 -132px; }
+	&[data-country='sb']:after {
+		background-position: -16px -132px; }
+	&[data-country='sc']:after {
+		background-position: -32px -132px; }
+	&[data-country='scotland']:after {
+		background-position: -48px -132px; }
+	&[data-country='sd']:after {
+		background-position: -64px -132px; }
+	&[data-country='se']:after {
+		background-position: -80px -132px; }
+	&[data-country='sg']:after {
+		background-position: -96px -132px; }
+	&[data-country='sh']:after {
+		background-position: -112px -132px; }
+	&[data-country='si']:after {
+		background-position: -128px -132px; }
+	&[data-country='sk']:after {
+		background-position: -144px -132px; }
+	&[data-country='sl']:after {
+		background-position: -160px -132px; }
+	&[data-country='sm']:after {
+		background-position: -176px -132px; }
+	&[data-country='sn']:after {
+		background-position: -192px -132px; }
+	&[data-country='so']:after {
+		background-position: -208px -132px; }
+	&[data-country='somaliland']:after {
+		background-position: -224px -132px; }
+	&[data-country='sr']:after {
+		background-position: -240px -132px; }
+	&[data-country='ss']:after {
+		background-position: 0 -143px; }
+	&[data-country='st']:after {
+		background-position: -16px -143px; }
+	&[data-country='sv']:after {
+		background-position: -32px -143px; }
+	&[data-country='sx']:after {
+		background-position: -48px -143px; }
+	&[data-country='sy']:after {
+		background-position: -64px -143px; }
+	&[data-country='sz']:after {
+		background-position: -80px -143px; }
+	&[data-country='tc']:after {
+		background-position: -96px -143px; }
+	&[data-country='td']:after {
+		background-position: -112px -143px; }
+	&[data-country='tf']:after {
+		background-position: -128px -143px; }
+	&[data-country='tg']:after {
+		background-position: -144px -143px; }
+	&[data-country='th']:after {
+		background-position: -160px -143px; }
+	&[data-country='tj']:after {
+		background-position: -176px -143px; }
+	&[data-country='tk']:after {
+		background-position: -192px -143px; }
+	&[data-country='tl']:after {
+		background-position: -208px -143px; }
+	&[data-country='tm']:after {
+		background-position: -224px -143px; }
+	&[data-country='tn']:after {
+		background-position: -240px -143px; }
+	&[data-country='to']:after {
+		background-position: 0 -154px; }
+	&[data-country='tr']:after {
+		background-position: -16px -154px; }
+	&[data-country='tt']:after {
+		background-position: -32px -154px; }
+	&[data-country='tv']:after {
+		background-position: -48px -154px; }
+	&[data-country='tw']:after {
+		background-position: -64px -154px; }
+	&[data-country='tz']:after {
+		background-position: -80px -154px; }
+	&[data-country='ua']:after {
+		background-position: -96px -154px; }
+	&[data-country='ug']:after {
+		background-position: -112px -154px; }
+	&[data-country='um']:after {
+		background-position: -128px -154px; }
+	&[data-country='us']:after {
+		background-position: -144px -154px; }
+	&[data-country='uy']:after {
+		background-position: -160px -154px; }
+	&[data-country='uz']:after {
+		background-position: -176px -154px; }
+	&[data-country='va']:after {
+		background-position: -192px -154px; }
+	&[data-country='vc']:after {
+		background-position: -208px -154px; }
+	&[data-country='ve']:after {
+		background-position: -224px -154px; }
+	&[data-country='vg']:after {
+		background-position: -240px -154px; }
+	&[data-country='vi']:after {
+		background-position: 0 -165px; }
+	&[data-country='vn']:after {
+		background-position: -16px -165px; }
+	&[data-country='vu']:after {
+		background-position: -32px -165px; }
+	&[data-country='wales']:after {
+		background-position: -48px -165px; }
+	&[data-country='wf']:after {
+		background-position: -64px -165px; }
+	&[data-country='ws']:after {
+		background-position: -80px -165px; }
+	&[data-country='ye']:after {
+		background-position: -96px -165px; }
+	&[data-country='yt']:after {
+		background-position: -112px -165px; }
+	&[data-country='za']:after {
+		background-position: -128px -165px; }
+	&[data-country='zanzibar']:after {
+		background-position: -144px -165px; }
+	&[data-country='zm']:after {
+		background-position: -160px -165px; }
+	&[data-country='zw']:after {
+		background-position: -176px -165px; }
 }
-
-.flag.flag-ad {background-position: -16px 0}
-.flag.flag-ae {background-position: -32px 0}
-.flag.flag-af {background-position: -48px 0}
-.flag.flag-ag {background-position: -64px 0}
-.flag.flag-ai {background-position: -80px 0}
-.flag.flag-al {background-position: -96px 0}
-.flag.flag-am {background-position: -112px 0}
-.flag.flag-an {background-position: -128px 0}
-.flag.flag-ao {background-position: -144px 0}
-.flag.flag-ar {background-position: -160px 0}
-.flag.flag-as {background-position: -176px 0}
-.flag.flag-at {background-position: -192px 0}
-.flag.flag-au {background-position: -208px 0}
-.flag.flag-aw {background-position: -224px 0}
-.flag.flag-az {background-position: -240px 0}
-.flag.flag-ba {background-position: 0 -11px}
-.flag.flag-bb {background-position: -16px -11px}
-.flag.flag-bd {background-position: -32px -11px}
-.flag.flag-be {background-position: -48px -11px}
-.flag.flag-bf {background-position: -64px -11px}
-.flag.flag-bg {background-position: -80px -11px}
-.flag.flag-bh {background-position: -96px -11px}
-.flag.flag-bi {background-position: -112px -11px}
-.flag.flag-bj {background-position: -128px -11px}
-.flag.flag-bm {background-position: -144px -11px}
-.flag.flag-bn {background-position: -160px -11px}
-.flag.flag-bo {background-position: -176px -11px}
-.flag.flag-br {background-position: -192px -11px}
-.flag.flag-bs {background-position: -208px -11px}
-.flag.flag-bt {background-position: -224px -11px}
-.flag.flag-bv {background-position: -240px -11px}
-.flag.flag-bw {background-position: 0 -22px}
-.flag.flag-by {background-position: -16px -22px}
-.flag.flag-bz {background-position: -32px -22px}
-.flag.flag-ca {background-position: -48px -22px}
-.flag.flag-catalonia {background-position: -64px -22px}
-.flag.flag-cd {background-position: -80px -22px}
-.flag.flag-cf {background-position: -96px -22px}
-.flag.flag-cg {background-position: -112px -22px}
-.flag.flag-ch {background-position: -128px -22px}
-.flag.flag-ci {background-position: -144px -22px}
-.flag.flag-ck {background-position: -160px -22px}
-.flag.flag-cl {background-position: -176px -22px}
-.flag.flag-cm {background-position: -192px -22px}
-.flag.flag-cn {background-position: -208px -22px}
-.flag.flag-co {background-position: -224px -22px}
-.flag.flag-cr {background-position: -240px -22px}
-.flag.flag-cu {background-position: 0 -33px}
-.flag.flag-cv {background-position: -16px -33px}
-.flag.flag-cw {background-position: -32px -33px}
-.flag.flag-cy {background-position: -48px -33px}
-.flag.flag-cz {background-position: -64px -33px}
-.flag.flag-de {background-position: -80px -33px}
-.flag.flag-dj {background-position: -96px -33px}
-.flag.flag-dk {background-position: -112px -33px}
-.flag.flag-dm {background-position: -128px -33px}
-.flag.flag-do {background-position: -144px -33px}
-.flag.flag-dz {background-position: -160px -33px}
-.flag.flag-ec {background-position: -176px -33px}
-.flag.flag-ee {background-position: -192px -33px}
-.flag.flag-eg {background-position: -208px -33px}
-.flag.flag-eh {background-position: -224px -33px}
-.flag.flag-england {background-position: -240px -33px}
-.flag.flag-er {background-position: 0 -44px}
-.flag.flag-es {background-position: -16px -44px}
-.flag.flag-et {background-position: -32px -44px}
-.flag.flag-eu {background-position: -48px -44px}
-.flag.flag-fi {background-position: -64px -44px}
-.flag.flag-fj {background-position: -80px -44px}
-.flag.flag-fk {background-position: -96px -44px}
-.flag.flag-fm {background-position: -112px -44px}
-.flag.flag-fo {background-position: -128px -44px}
-.flag.flag-fr {background-position: -144px -44px}
-.flag.flag-ga {background-position: -160px -44px}
-.flag.flag-gb {background-position: -176px -44px}
-.flag.flag-gd {background-position: -192px -44px}
-.flag.flag-ge {background-position: -208px -44px}
-.flag.flag-gf {background-position: -224px -44px}
-.flag.flag-gg {background-position: -240px -44px}
-.flag.flag-gh {background-position: 0 -55px}
-.flag.flag-gi {background-position: -16px -55px}
-.flag.flag-gl {background-position: -32px -55px}
-.flag.flag-gm {background-position: -48px -55px}
-.flag.flag-gn {background-position: -64px -55px}
-.flag.flag-gp {background-position: -80px -55px}
-.flag.flag-gq {background-position: -96px -55px}
-.flag.flag-gr {background-position: -112px -55px}
-.flag.flag-gs {background-position: -128px -55px}
-.flag.flag-gt {background-position: -144px -55px}
-.flag.flag-gu {background-position: -160px -55px}
-.flag.flag-gw {background-position: -176px -55px}
-.flag.flag-gy {background-position: -192px -55px}
-.flag.flag-hk {background-position: -208px -55px}
-.flag.flag-hm {background-position: -224px -55px}
-.flag.flag-hn {background-position: -240px -55px}
-.flag.flag-hr {background-position: 0 -66px}
-.flag.flag-ht {background-position: -16px -66px}
-.flag.flag-hu {background-position: -32px -66px}
-.flag.flag-ic {background-position: -48px -66px}
-.flag.flag-id {background-position: -64px -66px}
-.flag.flag-ie {background-position: -80px -66px}
-.flag.flag-il {background-position: -96px -66px}
-.flag.flag-im {background-position: -112px -66px}
-.flag.flag-in {background-position: -128px -66px}
-.flag.flag-io {background-position: -144px -66px}
-.flag.flag-iq {background-position: -160px -66px}
-.flag.flag-ir {background-position: -176px -66px}
-.flag.flag-is {background-position: -192px -66px}
-.flag.flag-it {background-position: -208px -66px}
-.flag.flag-je {background-position: -224px -66px}
-.flag.flag-jm {background-position: -240px -66px}
-.flag.flag-jo {background-position: 0 -77px}
-.flag.flag-jp {background-position: -16px -77px}
-.flag.flag-ke {background-position: -32px -77px}
-.flag.flag-kg {background-position: -48px -77px}
-.flag.flag-kh {background-position: -64px -77px}
-.flag.flag-ki {background-position: -80px -77px}
-.flag.flag-km {background-position: -96px -77px}
-.flag.flag-kn {background-position: -112px -77px}
-.flag.flag-kp {background-position: -128px -77px}
-.flag.flag-kr {background-position: -144px -77px}
-.flag.flag-kurdistan {background-position: -160px -77px}
-.flag.flag-kw {background-position: -176px -77px}
-.flag.flag-ky {background-position: -192px -77px}
-.flag.flag-kz {background-position: -208px -77px}
-.flag.flag-la {background-position: -224px -77px}
-.flag.flag-lb {background-position: -240px -77px}
-.flag.flag-lc {background-position: 0 -88px}
-.flag.flag-li {background-position: -16px -88px}
-.flag.flag-lk {background-position: -32px -88px}
-.flag.flag-lr {background-position: -48px -88px}
-.flag.flag-ls {background-position: -64px -88px}
-.flag.flag-lt {background-position: -80px -88px}
-.flag.flag-lu {background-position: -96px -88px}
-.flag.flag-lv {background-position: -112px -88px}
-.flag.flag-ly {background-position: -128px -88px}
-.flag.flag-ma {background-position: -144px -88px}
-.flag.flag-mc {background-position: -160px -88px}
-.flag.flag-md {background-position: -176px -88px}
-.flag.flag-me {background-position: -192px -88px}
-.flag.flag-mg {background-position: -208px -88px}
-.flag.flag-mh {background-position: -224px -88px}
-.flag.flag-mk {background-position: -240px -88px}
-.flag.flag-ml {background-position: 0 -99px}
-.flag.flag-mm {background-position: -16px -99px}
-.flag.flag-mn {background-position: -32px -99px}
-.flag.flag-mo {background-position: -48px -99px}
-.flag.flag-mp {background-position: -64px -99px}
-.flag.flag-mq {background-position: -80px -99px}
-.flag.flag-mr {background-position: -96px -99px}
-.flag.flag-ms {background-position: -112px -99px}
-.flag.flag-mt {background-position: -128px -99px}
-.flag.flag-mu {background-position: -144px -99px}
-.flag.flag-mv {background-position: -160px -99px}
-.flag.flag-mw {background-position: -176px -99px}
-.flag.flag-mx {background-position: -192px -99px}
-.flag.flag-my {background-position: -208px -99px}
-.flag.flag-mz {background-position: -224px -99px}
-.flag.flag-na {background-position: -240px -99px}
-.flag.flag-nc {background-position: 0 -110px}
-.flag.flag-ne {background-position: -16px -110px}
-.flag.flag-nf {background-position: -32px -110px}
-.flag.flag-ng {background-position: -48px -110px}
-.flag.flag-ni {background-position: -64px -110px}
-.flag.flag-nl {background-position: -80px -110px}
-.flag.flag-no {background-position: -96px -110px}
-.flag.flag-np {background-position: -112px -110px}
-.flag.flag-nr {background-position: -128px -110px}
-.flag.flag-nu {background-position: -144px -110px}
-.flag.flag-nz {background-position: -160px -110px}
-.flag.flag-om {background-position: -176px -110px}
-.flag.flag-pa {background-position: -192px -110px}
-.flag.flag-pe {background-position: -208px -110px}
-.flag.flag-pf {background-position: -224px -110px}
-.flag.flag-pg {background-position: -240px -110px}
-.flag.flag-ph {background-position: 0 -121px}
-.flag.flag-pk {background-position: -16px -121px}
-.flag.flag-pl {background-position: -32px -121px}
-.flag.flag-pm {background-position: -48px -121px}
-.flag.flag-pn {background-position: -64px -121px}
-.flag.flag-pr {background-position: -80px -121px}
-.flag.flag-ps {background-position: -96px -121px}
-.flag.flag-pt {background-position: -112px -121px}
-.flag.flag-pw {background-position: -128px -121px}
-.flag.flag-py {background-position: -144px -121px}
-.flag.flag-qa {background-position: -160px -121px}
-.flag.flag-re {background-position: -176px -121px}
-.flag.flag-ro {background-position: -192px -121px}
-.flag.flag-rs {background-position: -208px -121px}
-.flag.flag-ru {background-position: -224px -121px}
-.flag.flag-rw {background-position: -240px -121px}
-.flag.flag-sa {background-position: 0 -132px}
-.flag.flag-sb {background-position: -16px -132px}
-.flag.flag-sc {background-position: -32px -132px}
-.flag.flag-scotland {background-position: -48px -132px}
-.flag.flag-sd {background-position: -64px -132px}
-.flag.flag-se {background-position: -80px -132px}
-.flag.flag-sg {background-position: -96px -132px}
-.flag.flag-sh {background-position: -112px -132px}
-.flag.flag-si {background-position: -128px -132px}
-.flag.flag-sk {background-position: -144px -132px}
-.flag.flag-sl {background-position: -160px -132px}
-.flag.flag-sm {background-position: -176px -132px}
-.flag.flag-sn {background-position: -192px -132px}
-.flag.flag-so {background-position: -208px -132px}
-.flag.flag-somaliland {background-position: -224px -132px}
-.flag.flag-sr {background-position: -240px -132px}
-.flag.flag-ss {background-position: 0 -143px}
-.flag.flag-st {background-position: -16px -143px}
-.flag.flag-sv {background-position: -32px -143px}
-.flag.flag-sx {background-position: -48px -143px}
-.flag.flag-sy {background-position: -64px -143px}
-.flag.flag-sz {background-position: -80px -143px}
-.flag.flag-tc {background-position: -96px -143px}
-.flag.flag-td {background-position: -112px -143px}
-.flag.flag-tf {background-position: -128px -143px}
-.flag.flag-tg {background-position: -144px -143px}
-.flag.flag-th {background-position: -160px -143px}
-.flag.flag-tj {background-position: -176px -143px}
-.flag.flag-tk {background-position: -192px -143px}
-.flag.flag-tl {background-position: -208px -143px}
-.flag.flag-tm {background-position: -224px -143px}
-.flag.flag-tn {background-position: -240px -143px}
-.flag.flag-to {background-position: 0 -154px}
-.flag.flag-tr {background-position: -16px -154px}
-.flag.flag-tt {background-position: -32px -154px}
-.flag.flag-tv {background-position: -48px -154px}
-.flag.flag-tw {background-position: -64px -154px}
-.flag.flag-tz {background-position: -80px -154px}
-.flag.flag-ua {background-position: -96px -154px}
-.flag.flag-ug {background-position: -112px -154px}
-.flag.flag-um {background-position: -128px -154px}
-.flag.flag-us {background-position: -144px -154px}
-.flag.flag-uy {background-position: -160px -154px}
-.flag.flag-uz {background-position: -176px -154px}
-.flag.flag-va {background-position: -192px -154px}
-.flag.flag-vc {background-position: -208px -154px}
-.flag.flag-ve {background-position: -224px -154px}
-.flag.flag-vg {background-position: -240px -154px}
-.flag.flag-vi {background-position: 0 -165px}
-.flag.flag-vn {background-position: -16px -165px}
-.flag.flag-vu {background-position: -32px -165px}
-.flag.flag-wales {background-position: -48px -165px}
-.flag.flag-wf {background-position: -64px -165px}
-.flag.flag-ws {background-position: -80px -165px}
-.flag.flag-ye {background-position: -96px -165px}
-.flag.flag-yt {background-position: -112px -165px}
-.flag.flag-za {background-position: -128px -165px}
-.flag.flag-zanzibar {background-position: -144px -165px}
-.flag.flag-zm {background-position: -160px -165px}
-.flag.flag-zw {background-position: -176px -165px}

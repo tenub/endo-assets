@@ -1,3 +1,14 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic&amp;subset=latin,cyrillic-ext,greek-ext,greek,latin-ext,cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic&amp;subset=latin,cyrillic-ext,greek-ext,greek,latin-ext,cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&amp;subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css');
+
+// Define variables
+$font-heading: 'Roboto Slab';
+$font-body: 'Ubuntu';
+$font-code: 'Ubuntu Mono';
+
 @mixin body($bgcolor, $bgsize, $color) {
 	$stripe_color: lighten($bgcolor, 1.5%);
 	background: {
@@ -6,30 +17,23 @@
 		size: $bgsize;
 	}
 	color: $color;
-	font: 100% map-get($fonts, "body"), sans-serif;
-	text-align: center;
-}
-
-@mixin link($color, $hover) {
-	color: $color;
-	display: inline-block;
-	text-decoration: none;
-	transition: .5s color;
-	&:hover {
-		color: $hover;
-		transition: .5s color;
-	}
+	font-family: $font-body, sans-serif;
 }
 
 /**
  * Element definitions
  */
 html {
+	box-sizing: border-box;
 	font-size: 62.5%;
 }
 
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
 body {
-	font-size: 1.2em;
+	font-size: 1.2rem;
 }
 
 code {
@@ -38,7 +42,7 @@ code {
 }
 
 h1 {
-	font-family: map-get($fonts, "heading"), serif;
+	font-family: $font-heading, serif;
 	font-size: 3em;
 	margin: 0;
 	text-transform: lowercase;
@@ -46,7 +50,7 @@ h1 {
 
 p,
 h2 {
-	font-family: map-get($fonts, "heading"), serif;
+	font-family: $font-heading, serif;
 }
 
 input,
@@ -60,7 +64,6 @@ textarea {
 
 input,
 label {
-	box-sizing: border-box;
 	color: #fff;
 	line-height: 2em;
 }
@@ -108,8 +111,7 @@ table {
 }
 
 caption {
-	box-sizing: border-box;
-	font: bold 1.4em map-get($fonts, "heading"), serif;
+	font: bold 1.4em $font-heading, serif;
 	line-height: 1em;
 	margin: 0 0 .5em 0;
 	padding: 0 1em;

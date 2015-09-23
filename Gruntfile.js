@@ -1,18 +1,10 @@
 module.exports = function (grunt) {
 	require('load-grunt-tasks')(grunt);
 
-	grunt.registerTask('default', ['clean', 'csslint:lax', 'jshint', 'sass', 'concat', 'autoprefixer', 'cleanempty', 'cssmin', 'uglify']);
-	grunt.registerTask('deploy', ['sftp-deploy']);
+	grunt.registerTask('default', ['clean', 'csslint:lax', 'jshint', 'sass', 'concat', 'postcss', 'cleanempty', 'uglify']);
+	grunt.registerTask('deploy', 'ftpush');
 
 	grunt.initConfig({
-		'autoprefixer': {
-			options: {
-				browsers: ['last 2 versions']
-			},
-			no_dest: {
-				src: 'build/css/main.css'
-			}
-		},
 		'clean': {
 			all: ['build/', 'dist/']
 		},
@@ -25,7 +17,7 @@ module.exports = function (grunt) {
 		'concat': {
 			css: {
 				src: ['build/css/*.css', 'src/**/*.css'],
-				dest: 'build/css/main.css'
+				dest: 'dist/css/test.css'
 			},
 			js: {
 				src: ['src/**/*.js'],
@@ -54,11 +46,19 @@ module.exports = function (grunt) {
 				src: ['src/**/*.css']
 			}
 		},
-		'cssmin': {
-			compress: {
-				files: {
-					'dist/css/main.min.css': ['build/css/main.css']
-				}
+		ftpush: {
+			build: {
+				auth: {
+					host: 'kz-endo.com',
+					port: 21,
+					authKey: 'key1'
+				},
+				src: 'dist',
+				dest: 'public/assets',
+				exclusions: ['**/.DS_Store', '**/Thumbs.db', 'dist/tmp'],
+				keep: ['/img', '/css/main.min.css', '/js/main.min.js'],
+				simple: false,
+				useList: false
 			}
 		},
 		'jshint': {
@@ -70,6 +70,17 @@ module.exports = function (grunt) {
 				laxcomma: true
 			},
 			all: ['Gruntfile.js', 'src/**/*.js']
+		},
+		'postcss': {
+			options: {
+				processors: [
+					require('autoprefixer')({browsers: '> 5%'}),
+					require('cssnano')()
+				]
+			},
+			dist: {
+				src: 'dist/css/test.css'
+			}
 		},
 		'sass': {
 			dist: {
@@ -86,23 +97,10 @@ module.exports = function (grunt) {
 				}]
 			}
 		},
-		'sftp-deploy': {
-			build: {
-				auth: {
-					host: 'kz-endo.com',
-					port: 22,
-					authKey: 'key1'
-				},
-				src: 'dist',
-				dest: '/public/assets',
-				exclusions: ['dist/**/.DS_Store', 'dist/**/Thumbs.db', 'dist/tmp'],
-				server_sep: '/'
-			}
-		},
 		'uglify': {
 			dist: {
 				files: {
-					'dist/js/main.min.js': ['build/js/main.js']
+					'dist/js/main.js': ['build/js/main.js']
 				}
 			}
 		}

@@ -1,10 +1,7 @@
-// Define variables
-$fonts: ("heading": "Roboto Slab", "body": "Ubuntu", "mono": "Ubuntu Mono");
-
 // Import helpers
-@import "includes/base";
-@import "includes/flags";
-@import "includes/responsive";
+@import 'includes/base';
+@import 'includes/flags';
+@import 'includes/responsive';
 
 // Define custom base elements
 body {
@@ -12,7 +9,14 @@ body {
 }
 
 a {
-	@include link($color: #cfa, $hover: #fff);
+	color: #cfa;
+	display: inline-block;
+	text-decoration: none;
+	transition: .5s color;
+	&:hover {
+		color: #fff;
+		transition: .5s color;
+	}
 }
 
 
@@ -21,8 +25,9 @@ a {
  */
 
 .container {
-	margin: 2em auto;
 	width: 90%;
+	margin: 2em auto;
+	text-align: center;
 }
 
 .caption {
@@ -42,10 +47,10 @@ a {
 		li {
 			display: inline;
 			&:after {
-				content: " | ";
+				content: ' | ';
 			}
 			&:last-child:after {
-				content: "";
+				content: '';
 			}
 		}
 	form {
@@ -89,6 +94,10 @@ a {
 	right: 1em;
 	top: .5em;
 	transform: scale(-1, 1);
+}
+
+.sort:after {
+	content: '^';
 }
 
 .sort:hover {
