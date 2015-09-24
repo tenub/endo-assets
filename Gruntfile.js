@@ -1,7 +1,10 @@
 module.exports = function (grunt) {
 	require('load-grunt-tasks')(grunt);
 
-	grunt.registerTask('default', ['clean', 'csslint:lax', 'jshint', 'sass', 'concat', 'postcss', 'cleanempty', 'uglify']);
+	grunt.filename = grunt.option('filename') || 'main';
+
+	grunt.registerTask('default', ['build', 'deploy']);
+	grunt.registerTask('build', ['clean', 'csslint:lax', 'jshint', 'sass', 'concat', 'postcss', 'cleanempty', 'uglify']);
 	grunt.registerTask('deploy', 'ftpush');
 
 	grunt.initConfig({
@@ -17,7 +20,7 @@ module.exports = function (grunt) {
 		'concat': {
 			css: {
 				src: ['build/css/*.css', 'src/**/*.css'],
-				dest: 'dist/css/test.css'
+				dest: 'dist/css/<%= grunt.filename %>.css'
 			},
 			js: {
 				src: ['src/**/*.js'],
@@ -56,7 +59,7 @@ module.exports = function (grunt) {
 				src: 'dist',
 				dest: 'public/assets',
 				exclusions: ['**/.DS_Store', '**/Thumbs.db', 'dist/tmp'],
-				keep: ['/img', '/css/main.min.css', '/js/main.min.js'],
+				keep: ['/img', '/css/main*.css', '/js/main*.js'],
 				simple: false,
 				useList: false
 			}
@@ -79,7 +82,7 @@ module.exports = function (grunt) {
 				]
 			},
 			dist: {
-				src: 'dist/css/test.css'
+				src: 'dist/css/<%= grunt.filename %>.css'
 			}
 		},
 		'sass': {

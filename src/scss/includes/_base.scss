@@ -4,25 +4,60 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&amp;subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css');
 
-// Define variables
-$font-heading: 'Roboto Slab';
-$font-body: 'Ubuntu';
-$font-code: 'Ubuntu Mono';
+$font-face-head: 'Roboto Slab';
+$font-face-body: 'Ubuntu';
+$font-face-code: 'Ubuntu Mono';
+
+$font-size-sm: 0.9rem;
+$font-size-md: 1.4rem;
+$font-size-lg: 1.8rem;
+
+$color-text: #ffffff;
+$color-link: #ccffaa;
+$color-emph: #cc4614;
+
+$bgcolor-base: lighten(black, 16.25%);
+$bgcolor-drk1: darken($bgcolor-base, 12.5%);
+$bgcolor-lgt1: lighten($bgcolor-base, 7.5%);
+$bgcolor-lgt2: lighten($bgcolor-base, 20%);
+$bgcolor-lgt3: lighten($bgcolor-base, 25%);
+$bgcolor-lgt4: lighten($bgcolor-base, 16.25%);
+$bgcolor-uwr: #ce6aff;
+
+$spacing-sm: 0.2em;
+$spacing-md: 1em;
+$spacing-lg: 2em;
+
+%field {
+	background-color: #1e1e1e;
+	border: 1px solid #191919;
+	border-radius: 1em;
+}
+
+%icon {
+	display: inline-block;
+	font: normal normal normal $font-size-md/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+%module {
+	display: block;
+	margin: $spacing-md 0;
+}
 
 @mixin body($bgcolor, $bgsize, $color) {
 	$stripe_color: lighten($bgcolor, 1.5%);
+	color: $color;
 	background: {
 		color: $bgcolor;
 		image: linear-gradient(45deg, $stripe_color 25%, $bgcolor 25%, $bgcolor 50%, $stripe_color 50%, $stripe_color 75%, $bgcolor 75%, $bgcolor);
 		size: $bgsize;
 	}
-	color: $color;
-	font-family: $font-body, sans-serif;
 }
 
-/**
- * Element definitions
- */
 html {
 	box-sizing: border-box;
 	font-size: 62.5%;
@@ -33,68 +68,41 @@ html {
 }
 
 body {
-	font-size: 1.2rem;
+	font-family: $font-face-body, sans-serif;
+	font-size: $font-size-md;
 }
 
-code {
-	display: block;
-	margin: 1em 0;
+caption,
+h1, h2,
+p {
+	font-family: $font-face-head, serif;
 }
 
 h1 {
-	font-family: $font-heading, serif;
 	font-size: 3em;
 	margin: 0;
-	text-transform: lowercase;
 }
 
-p,
-h2 {
-	font-family: $font-heading, serif;
-}
-
-input,
-select,
-button,
-textarea {
-	&:focus {
-		outline: none;
-	}
+code,
+legend {
+	@extend %module;
 }
 
 input,
 label {
-	color: #fff;
 	line-height: 2em;
-}
-
-form {
-	margin: 1em 0;
 }
 
 fieldset {
 	border: none;
 }
 
-legend {
-	margin: 1em 0;
-	width: 100%;
-}
-
 input {
-	background: #1e1e1e;
-	border: 1px solid #191919;
-	border-radius: 1em;
 	padding: 0 1em;
-	&:focus {
-		box-shadow: 0 0 .5em #cfa;
-	}
 }
 
 label {
-	background: none;
 	display: inline-block;
-	position: relative;
 }
 
 sup {
@@ -104,16 +112,17 @@ sup {
 
 table {
 	border-collapse: separate;
-	color: #fff;
+	color: $color-text;
 	margin: 2em 0;
 	text-align: left;
 	width: 100%;
 }
 
 caption {
-	font: bold 1.4em $font-heading, serif;
+	font-size: 1.4em;
+	font-weight: bold;
 	line-height: 1em;
-	margin: 0 0 .5em 0;
+	margin: 0 0 .5em;
 	padding: 0 1em;
 }
 
@@ -161,7 +170,7 @@ tbody .deleted td {
 	height: 0;
 	line-height: 0;
 	font-size: 0;
-	background: #cc4614;
+	background: $color-emph;
 	visibility: hidden;
 	.meter {
 		border: none;
@@ -182,14 +191,12 @@ tbody tr:hover td {
 	background: #191919;
 }
 
-header {
-	position: relative;
-}
-
-footer p {
-	font-size: .7em;
+footer {
+	p {
+		font-size: $font-size-sm;
+	}
 }
 
 .red {
-	color: #cc4614;
+	color: $color-emph;
 }
