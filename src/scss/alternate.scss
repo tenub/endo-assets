@@ -24,6 +24,7 @@ input {
 }
 
 .load-time {
+	text-align: center;
 	&:before {
 		content: '\f0e7';
 		margin-right: $spacing-sm;
@@ -45,6 +46,10 @@ input {
 	}
 }
 
+.map,
+.wr {
+	text-align: center;
+}
 
 /**
  * Class definitions
@@ -52,8 +57,7 @@ input {
 
 .container {
 	width: 90%;
-	margin: 2em auto;
-	text-align: center;
+	@extend %centerblock;
 }
 
 .caption {
@@ -92,7 +96,6 @@ nav {
 		margin: 0;
 		padding: .5em;
 		position: absolute;
-		text-align: left;
 		top: -50%;
 		white-space: normal;
 		width: 100px;

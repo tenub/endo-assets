@@ -28,6 +28,11 @@ $spacing-sm: 0.2em;
 $spacing-md: 1em;
 $spacing-lg: 2em;
 
+%centerblock {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 %field {
 	background-color: #1e1e1e;
 	border: 1px solid #191919;
@@ -110,17 +115,10 @@ sup {
 	vertical-align: text-top;
 }
 
-table {
-	border-collapse: separate;
-	color: $color-text;
-	margin: 2em 0;
-	text-align: left;
-	width: 100%;
-}
-
 caption {
 	font-size: 1.4em;
 	font-weight: bold;
+	text-align: center;
 	line-height: 1em;
 	margin: 0 0 .5em;
 	padding: 0 1em;
@@ -130,8 +128,8 @@ th {
 	background: #1e1e1e;
 	font-size: 1.2em;
 	font-weight: bold;
-	margin: 0;
 	text-align: left;
+	margin: 0;
 	transition: .5s color;
 	white-space: nowrap;
 	border-top: 1px solid #191919;
@@ -189,6 +187,10 @@ tbody tr:last-child td {
 
 tbody tr:hover td {
 	background: #191919;
+}
+
+header {
+	text-align: center;
 }
 
 footer {
