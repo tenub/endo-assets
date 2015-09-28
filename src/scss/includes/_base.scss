@@ -8,9 +8,14 @@ $font-face-head: 'Roboto Slab';
 $font-face-body: 'Ubuntu';
 $font-face-code: 'Ubuntu Mono';
 
-$font-size-sm: 0.9rem;
-$font-size-md: 1.4rem;
-$font-size-lg: 1.8rem;
+$font-size-sm: .9em;
+$font-size-rg: 1.25em;
+$font-size-md: 1.5em;
+$font-size-lg: 1.75em;
+
+$heading-size-sm: 1.5em;
+$heading-size-md: 2em;
+$heading-size-lg: 3em;
 
 $color-text: #ffffff;
 $color-link: #ccffaa;
@@ -18,13 +23,15 @@ $color-emph: #cc4614;
 
 $bgcolor-base: lighten(black, 16.25%);
 $bgcolor-drk1: darken($bgcolor-base, 12.5%);
+$bgcolor-drk2: darken($bgcolor-base, 6.25%);
+$bgcolor-drk3: darken($bgcolor-base, 5%);
 $bgcolor-lgt1: lighten($bgcolor-base, 7.5%);
 $bgcolor-lgt2: lighten($bgcolor-base, 20%);
 $bgcolor-lgt3: lighten($bgcolor-base, 25%);
 $bgcolor-lgt4: lighten($bgcolor-base, 16.25%);
 $bgcolor-uwr: #ce6aff;
 
-$spacing-sm: 0.2em;
+$spacing-sm: .5em;
 $spacing-md: 1em;
 $spacing-lg: 2em;
 
@@ -34,8 +41,8 @@ $spacing-lg: 2em;
 }
 
 %field {
-	background-color: #1e1e1e;
-	border: 1px solid #191919;
+	background-color: $bgcolor-drk3;
+	border: 1px solid $bgcolor-drk2;
 	border-radius: 1em;
 }
 
@@ -72,6 +79,10 @@ html {
 	box-sizing: inherit;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
 body {
 	font-family: $font-face-body, sans-serif;
 	font-size: $font-size-md;
@@ -84,8 +95,15 @@ p {
 }
 
 h1 {
-	font-size: 3em;
-	margin: 0;
+	font-size: $heading-size-lg;
+}
+
+h2 {
+	font-size: $heading-size-md;
+}
+
+h3 {
+	font-size: $heading-size-sm;
 }
 
 code,
@@ -115,80 +133,6 @@ sup {
 	vertical-align: text-top;
 }
 
-caption {
-	font-size: 1.4em;
-	font-weight: bold;
-	text-align: center;
-	line-height: 1em;
-	margin: 0 0 .5em;
-	padding: 0 1em;
-}
-
-th {
-	background: #1e1e1e;
-	font-size: 1.2em;
-	font-weight: bold;
-	text-align: left;
-	margin: 0;
-	transition: .5s color;
-	white-space: nowrap;
-	border-top: 1px solid #191919;
-	&:first-child {
-		border-left: 1px solid #191919;
-		border-top-left-radius: 1em;
-	}
-	&:last-child {
-		border-right: 1px solid #191919;
-		border-top-right-radius: 1em;
-	}
-}
-
-td {
-	background: #1e1e1e;
-	position: relative;
-	word-break: break-all;
-	li {
-		padding: .25em 0;
-		margin-left: .75em;
-	}
-}
-
-tbody tr {
-	td {
-		&:first-child {
-			border-left: 1px solid #191919;
-		}
-		&:last-child {
-			border-right: 1px solid #191919;
-		}
-	}
-}
-
-tbody .deleted td {
-	height: 0;
-	line-height: 0;
-	font-size: 0;
-	background: $color-emph;
-	visibility: hidden;
-	.meter {
-		border: none;
-	}
-}
-
-tbody tr:last-child td {
-	border-bottom: 1px solid #191919;
-	&:first-child {
-		border-bottom-left-radius: 1em;
-	}
-	&:last-child {
-		border-bottom-right-radius: 1em;
-	}
-}
-
-tbody tr:hover td {
-	background: #191919;
-}
-
 header {
 	text-align: center;
 }
@@ -197,8 +141,4 @@ footer {
 	p {
 		font-size: $font-size-sm;
 	}
-}
-
-.red {
-	color: $color-emph;
 }

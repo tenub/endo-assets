@@ -3,11 +3,6 @@ $(function() {
 		, order = true;
 
 	/**
-	 * Add sort icon to all headings with the sort class
-	 */
-	//$('<span/>').addClass('fa fa-sort').appendTo($('th.sort'));
-
-	/**
 	 * Bind the sortTable function to heading columns with the sort class
 	 */
 	$('th.sort').on('click', function () {
