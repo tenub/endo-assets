@@ -84,10 +84,7 @@
 	}
 
 	.info {
-		&:before {
-			display: none;
-		}
-		&[data-description]:hover:before {
+		&[data-description] {
 			display: none;
 		}
 	}
