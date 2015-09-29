@@ -6,7 +6,7 @@ $(function() {
 	 * Bind the sortTable function to heading columns with the sort class
 	 */
 	$('th.sort').on('click', function () {
-		helper.sortTable($(this).parents('table')[0], $(this).index(), order);
+		helper.sortTable(this, $(this).index(), order);
 		order = (order === true) ? false : true;
 	});
 

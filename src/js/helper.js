@@ -7,11 +7,12 @@
 		 * @param {integer} n - which column to sort on
 		 * @param {boolean} o - determines sort direction
 		 */
-		this.sortTable = function (tbl, n, o) {
+		this.sortTable = function (th, n, o) {
 			var i
 				, l
 				, store = []
-				, tbody = tbl.tBodies[0]
+				, tbody = $(th).parents('table')[0].tBodies[0]
+				, classes = th.className
 				, row
 				, text
 				, val
@@ -20,7 +21,7 @@
 			for (i = 0, l = tbody.rows.length; i < l; i++) {
 				row = tbody.rows[i];
 				text = (row.cells[n].textContent || row.cells[n].innerText).toLowerCase();
-				val = this.parseValue(text, row.cells[n].className);
+				val = this.parseValue(text, classes);
 
 				store.push([val, row]);
 			}
@@ -73,59 +74,52 @@
 		 * @param {string} type - type of input value
 		 * @return {mixed} sortable value corresponding to the input value
 		 */
-		this.parseValue = function (val, type) {
+		this.parseValue = function (val, classlist) {
 			var perc
 				, d
 				, h
-				, m;
+				, m
+				;
 
-			switch (type) {
-				case 'avg-rank':
-					if (val === 'n/a') {
-						val = 9999;
+			if (classlist.indexOf('sort-avg-rank') !== -1) {
+				if (val === 'n/a') {
+					val = 9999;
+				}
+			} else if (classlist.indexOf('sort-performance') !== -1) {
+				perc = val.match(/\s+(\d{2,3}\.\d{2})%$/m);
+
+				if (val.indexOf('usc') !== -1) {
+					val = 100;
+				} else if (!perc) {
+					val = 0;
+				} else {
+					val = parseFloat(perc[1], 10);
+				}
+			} else if (classlist.indexOf('sort-when') !== -1) {
+				// /^(?=\S)-(?:[1-9][0-9]*d)?(?:(?:^| )(?:1[0-9]?|[3-9]|2[0-3]?)h)?(?:(?:^| )(?:[1-5][0-9]?|[6-9])m)?$/
+				if (/-?(?:\d+[dhm] ?){1,3}/.test(val)) {
+					d = val.match(/\d+(?=d)/);
+					h = val.match(/\d+(?=h)/);
+					m = val.match(/\d+(?=m)/);
+
+					if (m) {
+						m = parseInt(m);
 					}
-					break;
 
-				case 'performance':
-					perc = val.match(/\s+(\d{2,3}\.\d{2})%$/m);
-
-					if (val.indexOf('usc') !== -1) {
-						val = 100;
-					} else if (!perc) {
-						val = 0;
-					} else {
-						val = parseFloat(perc[1], 10);
+					if (h) {
+						m += parseInt(h) * 60;
 					}
-					break;
 
-				case 'when':
-					// /^(?=\S)-(?:[1-9][0-9]*d)?(?:(?:^| )(?:1[0-9]?|[3-9]|2[0-3]?)h)?(?:(?:^| )(?:[1-5][0-9]?|[6-9])m)?$/
-					if (/-?(?:\d+[dhm] ?){1,3}/.test(val)) {
-						d = val.match(/\d+(?=d)/);
-						h = val.match(/\d+(?=h)/);
-						m = val.match(/\d+(?=m)/);
-
-						if (m) {
-							m = parseInt(m);
-						}
-
-						if (h) {
-							m += parseInt(h) * 60;
-						}
-
-						if (d) {
-							m += parseInt(d) * 1440;
-						}
-
-						val = m;
-					} else {
-						val = false;
+					if (d) {
+						m += parseInt(d) * 1440;
 					}
-					break;
 
-				default:
-					//val = val.replace(/\D/g, '');
-					break;
+					val = m;
+				} else {
+					val = false;
+				}
+			} else {
+				//val = val.replace(/\D/g, '');
 			}
 
 			return val;

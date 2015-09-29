@@ -48,10 +48,6 @@
 		padding: .8em 10px .4em;
 	}
 
-	.name {
-		display: none;
-	}
-
 }
 
 @media screen and (max-width: 767px) {
@@ -68,13 +64,15 @@
 		padding: .8em 5px .4em;
 	}
 
-	.name,
+	/* .name,
 	.points,
 	.cp,
 	.performance,
 	.percentile,
 	.avg-rank,
-	.num-uwrs
+	.num-uwrs, */
+
+	.extra
 	 {
 		display: none;
 	}
