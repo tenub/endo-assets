@@ -96,7 +96,6 @@ th {
 
 td {
 	position: relative;
-	word-break: break-all;
 	background-color: $bgcolor-drk3;
 	&:first-child {
 		border-left: 1px solid $bgcolor-drk2;
@@ -230,7 +229,7 @@ td {
 	text-shadow: 1px 1px 0 #000;
 }
 
-.server,
+.current-map,
 .players {
 	position: relative;
 	ul {
@@ -256,7 +255,7 @@ td {
 	right: -2em;
 }
 
-.server {
+.current-map {
 	ul {
 		left: 4em;
 		li:first-child {
@@ -268,7 +267,7 @@ td {
 }
 
 .players,
-.server {
+.current-map {
 	a:hover ul {
 		display: block;
 	}
@@ -316,7 +315,6 @@ td {
 		margin: 0 0 0 .5em;
 		position: absolute;
 		top: 0;
-		word-break: normal;
 		z-index: 2;
 	}
 }
@@ -324,8 +322,4 @@ td {
 .uwr {
 	background-color: #ce6aff;
 	background-image: linear-gradient(to left, #ce6aff 0%, #c961fc 0%, #5fffff 34%, #66f962 65%, #ff6060 100%, #ff696a 100%);
-}
-
-.number {
-	word-break: normal;
 }
