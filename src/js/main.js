@@ -2,6 +2,12 @@ $(function() {
 	var helper = new Helper()
 		, order = true;
 
+	$('.servers a').on('click', function (e) {
+		if ($(this).attr('href') === '#') {
+			e.preventDefault();
+		}
+	});
+
 	/**
 	 * Bind the sortTable function to heading columns with the sort class
 	 */

@@ -95,7 +95,6 @@ th {
 }
 
 td {
-	position: relative;
 	background-color: $bgcolor-drk3;
 	&:first-child {
 		border-left: 1px solid $bgcolor-drk2;
@@ -231,50 +230,84 @@ td {
 
 .current-map,
 .players {
-	position: relative;
+	a {
+		position: relative;
+		&:hover {
+			ul {
+				display: block;
+			}
+		}
+	}
 	ul {
-		background-color: $bgcolor-drk1;
-		box-shadow: 0 0 .5em rgba(0,0,0,.2),
-					inset 0 1px $bgcolor-lgt1;
-		border: 1px solid #000;
-		border-radius: .5em;
-		display: none;
-		color: $color-text;
-		font-size: .8em;
 		list-style-position: inside;
-		margin: 0;
-		padding: .25em 0;
 		position: absolute;
-		top: -.75em;
-		width: 200px;
+		top: $spacing-sm / 2;
 		z-index: 1;
+		font-size: $font-size-sm;
+		display: none;
+		width: 200px;
+		margin: 0;
+		padding: $spacing-sm / 2 0;
+		color: $color-text;
+		background-color: $bgcolor-drk1;
+		border: 1px solid #000;
+		border-radius: $spacing-sm;
+		box-shadow: 0 0 $spacing-sm rgba(0,0,0,.2),
+					inset 0 1px $bgcolor-lgt1;
 	}
 }
 
-.players ul {
-	right: -2em;
+.players {
+	ul {
+		right: 100%;
+		margin-right: $spacing-sm;
+	}
 }
 
 .current-map {
 	ul {
-		left: 4em;
+		left: 100%;
+		margin-left: $spacing-sm;
 		li:first-child {
 			list-style: none;
-			margin: 0 .75em;
 			text-decoration: underline;
+			margin: 0 $spacing-sm * 1.5;
 		}
 	}
 }
 
-.players,
-.current-map {
-	a:hover ul {
-		display: block;
+.servers {
+	[data-game] {
+		position: relative;
+		padding-left: 1.75em;
+		&:before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 0;
+			display: block;
+			width: 1.5em;
+			height: 1.5em;
+			margin-top: -.75em;
+			background-size: cover;
+		}
+	}
+	[data-game='1'] {
+		&:before {
+			background-image: url(../img/icon-cs16.png);
+		}
+	}
+	[data-game='2'] {
+		&:before {
+			background-image: url(../img/icon-csgo.png);
+		}
 	}
 }
 
-.type img {
-	margin-left: .5em;
+.type {
+	img {
+		margin-left: .5em;
+	}
 }
 
 .w20 {
@@ -286,6 +319,7 @@ td {
 	display: block;
 	position: relative;
 }
+
 .perc,
 .time {
 	display: none;
