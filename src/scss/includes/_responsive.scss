@@ -34,7 +34,7 @@
 
 }
 
-@media screen and (min-width: 768px) and (max-width: 979px) {
+@media screen and (min-width: 480px) and (max-width: 979px) {
 
 	body {
 		font-size: 1.2rem;
@@ -50,14 +50,58 @@
 
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 479px) {
 
 	body {
 		font-size: 1.1rem;
 	}
 
+	thead {
+		display: none;
+	}
+
+	tbody {
+		tr {
+			&:last-child {
+				td {
+					padding-bottom: .4em;
+					border-bottom: none;
+					&:first-child {
+						border-bottom-left-radius: 0;
+					}
+					&:last-child {
+						padding-bottom: .4em;
+						border-bottom: 1px solid $bgcolor-drk2;
+						border-bottom-right-radius: 0;
+					}
+				}
+			}
+		}
+	}
+
 	td {
+		clear: left;
+		display: block;
+		width: 100%;
 		padding: .4em 5px;
+		border-left: 1px solid #1a1a1a;
+		border-right: 1px solid #1a1a1a;
+		&:before {
+			float: left;
+			display: block;
+			width: 30%;
+			font-weight: bold;
+		}
+		&:first-child {
+			border-top: 1px solid #1a1a1a;
+		}
+		&:last-child {
+			margin-bottom: $spacing-sm;
+			border-bottom: 1px solid #1a1a1a;
+		}
+		&.w20 {
+			width: 100%;
+		}
 	}
 
 	th {
@@ -70,12 +114,11 @@
 	.performance,
 	.percentile,
 	.avg-rank,
-	.num-uwrs, */
+	.num-uwrs,
 
-	.extra
-	 {
+	.extra {
 		display: none !important;
-	}
+	} */
 
 	.container {
 		min-width: 320px;
@@ -87,4 +130,39 @@
 		}
 	}
 
+	/**
+	 * Alternate table headings for small devices
+	 */
+	.average:before {
+			content: 'Average' }
+	.cp:before {
+			content: 'CP'; }
+	.gc:before {
+			content: 'GC'; }
+	.mapdate:before {
+			content: 'Date'; }
+	.maptime:before {
+			content: 'Time'; }
+	.name:before {
+			content: 'Name'; }
+	.number:before {
+			content: '#'; }
+	.percent:before {
+			content: 'Percent'; }
+	.points:before {
+			content: 'Points'; }
+	.ranked:before {
+			content: 'Ranked'; }
+	.uwrs:before {
+			content: 'UWRs' }
+	.weapon:before {
+			content: 'Weapon'; }
+	.performance {
+		&:before {
+			content: 'Performance';
+		}
+		.meter {
+			width: 30%;
+		}
+	}
 }
