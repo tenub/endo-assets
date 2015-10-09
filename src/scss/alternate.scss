@@ -279,7 +279,7 @@ td {
 .servers {
 	[data-game] {
 		position: relative;
-		padding-left: 1.75em;
+		padding-left: 2em;
 		&:before {
 			content: '';
 			position: absolute;
@@ -294,12 +294,12 @@ td {
 	}
 	[data-game='1'] {
 		&:before {
-			background-image: url(../img/icon-cs16.png);
+			background-image: url(../img/icon-cs16.jpg);
 		}
 	}
 	[data-game='2'] {
 		&:before {
-			background-image: url(../img/icon-csgo.png);
+			background-image: url(../img/icon-csgo.jpg);
 		}
 	}
 }
