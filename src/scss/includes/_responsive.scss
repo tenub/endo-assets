@@ -77,6 +77,15 @@
 				}
 			}
 		}
+		.current-map,
+		.players {
+			ul {
+				right: 0;
+				left: 100%;
+				margin-right: 0;
+				margin-left: $spacing-sm;
+			}
+		}
 	}
 
 	td {
@@ -137,26 +146,39 @@
 			content: 'Average' }
 	.cp:before {
 			content: 'CP'; }
+	.current-map:before {
+			content: 'Current Map';
+	}
 	.gc:before {
 			content: 'GC'; }
 	.mapdate:before {
 			content: 'Date'; }
+	.mapname:before {
+			content: 'Map'; }
 	.maptime:before {
 			content: 'Time'; }
 	.name:before {
-			content: 'Name'; }
+			content: 'Player'; }
 	.number:before {
 			content: '#'; }
+	.numrecs:before {
+			content: 'Records'; }
 	.percent:before {
 			content: 'Percent'; }
+	.players:before {
+			content: 'Players'; }
 	.points:before {
 			content: 'Points'; }
 	.ranked:before {
 			content: 'Ranked'; }
+	.server:before {
+			content: 'Server'; }
 	.uwrs:before {
 			content: 'UWRs' }
 	.weapon:before {
 			content: 'Weapon'; }
+	.when:before {
+			content: 'When'; }
 	.performance {
 		&:before {
 			content: 'Performance';
