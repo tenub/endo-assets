@@ -34,7 +34,7 @@
 
 }
 
-@media screen and (min-width: 480px) and (max-width: 979px) {
+@media screen and (min-width: 768px) and (max-width: 979px) {
 
 	body {
 		font-size: 1.2rem;
@@ -50,7 +50,7 @@
 
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 767px) {
 
 	body {
 		font-size: 1.1rem;
@@ -64,15 +64,15 @@
 		tr {
 			&:last-child {
 				td {
-					padding-bottom: .4em;
+					padding-bottom: $spacing-md;
 					border-bottom: none;
 					&:first-child {
 						border-bottom-left-radius: 0;
 					}
 					&:last-child {
-						padding-bottom: .4em;
+						padding-bottom: $spacing-md;
 						border-bottom: 1px solid $bgcolor-drk2;
-						border-bottom-right-radius: 0;
+						border-bottom-right-radius: $spacing-md;
 					}
 				}
 			}
@@ -92,7 +92,7 @@
 		clear: left;
 		display: block;
 		width: 100%;
-		padding: .4em 5px;
+		padding: .4em 10px;
 		border-left: 1px solid #1a1a1a;
 		border-right: 1px solid #1a1a1a;
 		&:before {
@@ -102,22 +102,28 @@
 			font-weight: bold;
 		}
 		&:first-child {
+			padding-top: $spacing-md;
 			border-top: 1px solid #1a1a1a;
+			border-top-left-radius: $spacing-md;
+			border-top-right-radius: $spacing-md;
 		}
 		&:last-child {
 			margin-bottom: $spacing-sm;
+			padding-bottom: $spacing-md;
 			border-bottom: 1px solid #1a1a1a;
+			border-bottom-left-radius: $spacing-md;
+			border-bottom-right-radius: $spacing-md;
 		}
 		&.w20 {
 			width: 100%;
 		}
 	}
 
-	th {
+	/* th {
 		padding: .8em 5px .4em;
 	}
 
-	/* .name,
+	.name,
 	.points,
 	.cp,
 	.performance,
