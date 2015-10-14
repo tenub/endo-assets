@@ -155,12 +155,18 @@
 		 * @param {object} link
 		 * @return {boolean} success
 		 */
-		this.deleteRecord = function (link) {
-			var $link = $(link);
-
+		this.deleteRecord = function (form) {
 			if (this.confirmDelete('Really delete the record?')) {
-				$.post('/delete', this.getHashParams, function (data) {
-					$link.parents('tr').remove();
+				var formData = $(form).serialize()
+					, deleteData = this.getParams(decodeURIComponent(formData))
+					;
+
+				$.post('/delete', formData, function (response) {
+					if (response === false) {
+						window.alert('Unable to delete record.');
+					} else {
+						window.location.reload();
+					}
 				});
 
 				return true;
@@ -175,16 +181,25 @@
 		 * @param {string} uri
 		 * @return {object} json
 		 */
-		this.getHashParams = function (uri) {
+		this.getParams = function (uri) {
 			var match
 				, params = {}
+				, re = /([^=]+)=([^&]*)&?/g
 				;
 
-			while ((match = /([^=]+)=([^&]*)/g.exec(uri)) !== null) {
-				params[match[1]] = match[2];
+			while ((match = re.exec(uri)) !== null) {
+				if (match[1].indexOf('[]') !== -1) {
+					if (params.hasOwnProperty(match[1])) {
+						params[match[1]].push(match[2]);
+					} else {
+						params[match[1]] = [match[2]];
+					}
+				} else {
+					params[match[1]] = match[2];
+				}
 			}
 
-			return JSON.stringify(params);
+			return params;
 		};
 	}
 

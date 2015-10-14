@@ -39,7 +39,7 @@ $(function() {
 		}
 	});
 
-	$('a.delete').on('click', function (e) {
+	$('form.delete').on('submit', function (e) {
 		e.preventDefault();
 		helper.deleteRecord(this);
 	});
