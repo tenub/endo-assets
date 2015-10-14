@@ -35,6 +35,11 @@ $spacing-sm: .5em;
 $spacing-md: 1em;
 $spacing-lg: 2em;
 
+%button {
+	background-color: $bgcolor-lgt4;
+	border: 1px solid $bgcolor-drk1;
+}
+
 %centerblock {
 	margin-left: auto;
 	margin-right: auto;

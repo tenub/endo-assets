@@ -20,6 +20,10 @@ a {
 	}
 }
 
+button {
+	@extend %button;
+}
+
 input {
 	@extend %field;
 }
@@ -226,6 +230,11 @@ td {
 .map,
 .wr {
 	text-align: center;
+}
+
+.pagination {
+	margin-top: $spacing-md;
+	margin-bottom: $spacing-md;
 }
 
 .text-center {

@@ -86,7 +86,7 @@
 					val = 9999;
 				}
 			} else if (classlist.indexOf('sort-performance') !== -1) {
-				perc = val.match(/\s+(\d{2,3}\.\d{2})%$/m);
+				perc = val.match(/\s+(\d{1,3}\.\d{2})%$/m);
 
 				if (val.indexOf('usc') !== -1) {
 					val = 100;

@@ -43,4 +43,8 @@ $(function() {
 		e.preventDefault();
 		helper.deleteRecord(this);
 	});
+
+	$('.toggle-cb').on('click', function (e) {
+		$(this).parents('form').find('input[type="checkbox"][name="' + this.id + '"]').prop('checked', this.checked);
+	});
 });
