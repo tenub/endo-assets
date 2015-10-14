@@ -16,6 +16,10 @@
 		max-width: 1920px;
 	}
 
+	.mobile-sort {
+		display: none;
+	}
+
 }
 
 @media screen and (min-width: 980px) and (max-width: 1259px) {
@@ -32,6 +36,10 @@
 		padding: 1em 15px .5em;
 	}
 
+	.mobile-sort {
+		display: none;
+	}
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 979px) {
@@ -46,6 +54,10 @@
 
 	th {
 		padding: .8em 10px .4em;
+	}
+
+	.mobile-sort {
+		display: none;
 	}
 
 }
@@ -145,6 +157,16 @@
 		}
 	}
 
+	.mobile-sort {
+		text-align: center;
+		label {
+			margin-right: $spacing-sm;
+		}
+		.sort-type {
+			margin-right: $spacing-md;
+		}
+	}
+
 	/**
 	 * Alternate table headings for small devices
 	 */
@@ -175,8 +197,10 @@
 			content: 'Players'; }
 	.points:before {
 			content: 'Points'; }
+	.rank:before {
+			content: 'Rank'; }
 	.ranked:before {
-			content: 'Ranked'; }
+			content: 'Ranked Times'; }
 	.server:before {
 			content: 'Server'; }
 	.uwrs:before {

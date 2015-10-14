@@ -170,6 +170,15 @@ td {
 	}
 }
 
+.results {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	a {
+		padding: #{$spacing-sm / 2} $spacing-md;
+	}
+}
+
 .sort {
 	&:after {
 		content: '\f0dc';
@@ -247,7 +256,7 @@ td {
 		display: none;
 		width: 200px;
 		margin: 0;
-		padding: $spacing-sm / 2 0;
+		padding: #{$spacing-sm / 2} 0;
 		color: $color-text;
 		background-color: $bgcolor-drk1;
 		border: 1px solid #000;
@@ -326,24 +335,26 @@ td {
 }
 
 .meter {
+	position: relative;
+	display: inline-block;
+	width: 50%;
+	height: .5em;
+	line-height: .5em;
 	background-color: $bgcolor-lgt3;
 	border: 1px solid #000;
 	box-shadow: inset 0 .25em 2px $bgcolor-lgt4;
-	display: inline-block;
-	height: .5em;
-	line-height: .5em;
-	position: relative;
-	width: 50%;
 	div {
+		content: '';
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		display: block;
+		height: 100%;
 		box-shadow: 1px 0 .2em rgba(30,30,30,.3),
 					inset 0 -.25em .25em rgba(30,30,30,.3);
-		height: 100%;
-		left: 0;
-		position: absolute;
-		top: 0;
-		z-index: 1;
 	}
-	span {
+	data {
 		font-size: .75em;
 		left: 100%;
 		margin: 0 0 0 .5em;

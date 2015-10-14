@@ -1,6 +1,5 @@
 $(function() {
-	var helper = new Helper()
-		, order = true;
+	var helper = new Helper();
 
 	$('.servers a').on('click', function (e) {
 		if ($(this).attr('href') === '#') {
@@ -12,8 +11,23 @@ $(function() {
 	 * Bind the sortTable function to heading columns with the sort class
 	 */
 	$('th.sort').on('click', function () {
-		helper.sortTable(this, $(this).index(), order);
-		order = (order === true) ? false : true;
+		helper.sortTable(this, $(this).index(), !$(this).hasClass('sort-desc'));
+		$(this).toggleClass('sort-desc').siblings('.sort-desc').removeClass('sort-desc');
+	});
+
+	$('.mobile-sort select').on('change', function () {
+		var $tbl = $(this).parents('form').next('table')
+			, sortType = $(this).parents('form').find('.sort-type').val()
+			, sortOrder = $(this).parents('form').find('.sort-order').val() === 'sort-desc'
+			, $th = $tbl.find('.' + sortType)
+			;
+
+		if ($th.length) {
+			helper.sortTable($th[0], $('th.' + sortType).index(), !sortOrder);
+			if (!sortOrder) {
+				$th.toggleClass('sort-desc').siblings('.sort-desc').removeClass('sort-desc');
+			}
+		}
 	});
 
 	/**
