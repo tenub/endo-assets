@@ -122,6 +122,8 @@ label {
 }
 
 fieldset {
+	margin: 0;
+	padding: 0;
 	border: none;
 }
 
@@ -138,6 +140,7 @@ header {
 }
 
 footer {
+	text-align: center;
 	p {
 		font-size: $font-size-sm;
 	}

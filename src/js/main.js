@@ -45,6 +45,6 @@ $(function() {
 	});
 
 	$('.toggle-cb').on('click', function (e) {
-		$(this).parents('form').find('input[type="checkbox"][name="' + this.id + '"]').prop('checked', this.checked);
+		$(this).parents('fieldset').find('input[type="checkbox"][name="' + this.id + '"]').prop('checked', this.checked);
 	});
 });

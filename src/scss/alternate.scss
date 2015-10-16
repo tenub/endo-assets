@@ -232,6 +232,12 @@ td {
 	text-align: center;
 }
 
+.delete {
+	.remove {
+		margin-bottom: 1em;
+	}
+}
+
 .pagination {
 	margin-top: $spacing-md;
 	margin-bottom: $spacing-md;

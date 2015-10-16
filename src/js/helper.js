@@ -157,11 +157,17 @@
 		 */
 		this.deleteRecord = function (form) {
 			if (this.confirmDelete('Really delete the record?')) {
-				var formData = $(form).serialize()
-					, deleteData = this.getParams(decodeURIComponent(formData))
+				var _this = this
+					, formData
+					, deleteData = {}
 					;
 
-				$.post('/delete', formData, function (response) {
+				$(form).find('fieldset.type').each(function () {
+					formData = $(this).serialize();
+					deleteData[this.name] = _this.getParams(decodeURIComponent(formData));
+				});
+
+				$.post('/delete', deleteData, function (response) {
 					if (response === false) {
 						window.alert('Unable to delete record.');
 					} else {
@@ -188,14 +194,10 @@
 				;
 
 			while ((match = re.exec(uri)) !== null) {
-				if (match[1].indexOf('[]') !== -1) {
-					if (params.hasOwnProperty(match[1])) {
-						params[match[1]].push(match[2]);
-					} else {
-						params[match[1]] = [match[2]];
-					}
+				if (params.hasOwnProperty(match[1])) {
+					params[match[1]].push(match[2]);
 				} else {
-					params[match[1]] = match[2];
+					params[match[1]] = [match[2]];
 				}
 			}
 
