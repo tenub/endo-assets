@@ -16,10 +16,11 @@ $(function() {
 	});
 
 	$('.mobile-sort select').on('change', function () {
-		var $tbl = $(this).parents('form').next('table')
-			, sortType = $(this).parents('form').find('.sort-type').val()
-			, sortOrder = $(this).parents('form').find('.sort-order').val() === 'sort-desc'
-			, $th = $tbl.find('.' + sortType)
+		var $fieldset = $(this).parents('fieldset')
+			, $table = $fieldset.find('table')
+			, sortType = $fieldset.find('.sort-type').val()
+			, sortOrder = $fieldset.find('.sort-order').val() === 'sort-desc'
+			, $th = $table.find('.' + sortType)
 			;
 
 		if ($th.length) {
