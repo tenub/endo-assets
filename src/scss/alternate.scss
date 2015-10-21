@@ -241,6 +241,14 @@ td {
 .pagination {
 	margin-top: $spacing-md;
 	margin-bottom: $spacing-md;
+	padding: 0;
+	li {
+		display: inline;
+		list-style-type: none;
+		&:not(:first-child) {
+			margin-left: $spacing-sm;
+		}
+	}
 }
 
 .text-center {
@@ -380,6 +388,7 @@ td {
 }
 
 .uwr {
+	width: 100%;
 	background-color: #ce6aff;
 	background-image: linear-gradient(to left, #ce6aff 0%, #c961fc 0%, #5fffff 34%, #66f962 65%, #ff6060 100%, #ff696a 100%);
 }

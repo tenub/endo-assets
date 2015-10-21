@@ -5,7 +5,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('default', ['build', 'deploy']);
 	grunt.registerTask('build', ['clean', 'csslint:lax', 'jshint', 'sass', 'concat', 'postcss', 'cleanempty', 'uglify']);
-	grunt.registerTask('deploy', 'ftpush');
+	grunt.registerTask('deploy', 'ftpush:dev');
 
 	grunt.initConfig({
 		'clean': {
@@ -49,8 +49,21 @@ module.exports = function (grunt) {
 				src: ['src/**/*.css']
 			}
 		},
-		ftpush: {
-			build: {
+		'ftpush': {
+			dev: {
+				auth: {
+					host: 'kz-endo.com',
+					port: 21,
+					authKey: 'key1'
+				},
+				src: 'dist',
+				dest: 'dev/assets',
+				exclusions: ['**/.DS_Store', '**/Thumbs.db', 'dist/tmp'],
+				keep: ['/img', '/css/main*.css', '/js/main*.js'],
+				simple: false,
+				useList: false
+			},
+			prod: {
 				auth: {
 					host: 'kz-endo.com',
 					port: 21,
@@ -77,8 +90,8 @@ module.exports = function (grunt) {
 		'postcss': {
 			options: {
 				processors: [
-					require('autoprefixer')({browsers: '> 5%'}),
-					require('cssnano')()
+					require('autoprefixer')({browsers: '> 5%'})/*,
+					require('cssnano')()*/
 				]
 			},
 			dist: {
