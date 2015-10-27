@@ -69,13 +69,14 @@ tr {
 		td {
 			background-color: $bgcolor-drk2;
 		}
-		.perc,
 		.time {
 			display: block;
 		}
-		.date,
-		.diff {
+		.date {
 			display: none;
+		}
+		.meter[data-diff]:after {
+			content: attr(data-perc);
 		}
 	}
 }
@@ -346,19 +347,18 @@ td {
 	width: 20%;
 }
 
-.date,
-.diff {
+.date {
 	display: block;
 	position: relative;
 }
 
-.perc,
 .time {
 	display: none;
 }
 
 .meter {
 	position: relative;
+	font-size: .75em;
 	display: inline-block;
 	width: 50%;
 	height: .5em;
@@ -377,13 +377,11 @@ td {
 		box-shadow: 1px 0 .2em rgba(30,30,30,.3),
 					inset 0 -.25em .25em rgba(30,30,30,.3);
 	}
-	data {
-		font-size: .75em;
-		left: 100%;
-		margin: 0 0 0 .5em;
+	&[data-diff]:after {
+		content: attr(data-diff);
 		position: absolute;
-		top: 0;
-		z-index: 2;
+		left: 100%;
+		margin-left: .5em;
 	}
 }
 
