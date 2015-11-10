@@ -53,6 +53,7 @@ caption {
 }
 
 tr {
+	position: relative;
 	&:last-child {
 		td {
 			padding-bottom: $spacing-md;
@@ -237,6 +238,14 @@ td {
 .delete {
 	.remove {
 		margin-bottom: 1em;
+	}
+}
+
+.focus {
+	td {
+		background-color: rgba(204,70,20,0.2);
+		border-top: 1px solid $bgcolor-drk2;
+		border-bottom: 1px solid $bgcolor-drk2;
 	}
 }
 
