@@ -61,9 +61,7 @@ $spacing-lg: 2em;
 }
 
 %linkslist {
-	margin-top: $spacing-md;
-	margin-bottom: $spacing-md;
-	padding: 0;
+	padding-left: 0;
 	li {
 		display: inline;
 		list-style-type: none;

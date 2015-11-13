@@ -41,7 +41,7 @@ nav {
 table {
 	border-collapse: separate;
 	width: 100%;
-	margin: 2em 0;
+	margin: $spacing-md 0;
 	color: $color-text;
 }
 
@@ -122,6 +122,20 @@ td {
 	&:after {
 		content: '\f080';
 		margin-left: $spacing-sm / 2;
+		@extend %icon;
+	}
+}
+
+.duel-loss {
+	&:after {
+		content: '\f063';
+		@extend %icon;
+	}
+}
+
+.duel-win {
+	&:after {
+		content: '\f062';
 		@extend %icon;
 	}
 }
@@ -214,9 +228,7 @@ td {
 	text-align: center;
 }
 
-.logo,
-.map,
-.player {
+h1, h2 {
 	margin-top: $spacing-sm;
 }
 
@@ -229,9 +241,7 @@ td {
 	margin-top: $spacing-sm;
 }
 
-.map,
-.player,
-.wr {
+h1, h2, h3 {
 	text-align: center;
 }
 
@@ -243,7 +253,7 @@ td {
 
 .focus {
 	td {
-		background-color: rgba(204,70,20,0.2);
+		background-color: $color-emph;
 		border-top: 1px solid $bgcolor-drk2;
 		border-bottom: 1px solid $bgcolor-drk2;
 	}
@@ -254,7 +264,7 @@ td {
 	font-size: $font-size-lg;
 	font-weight: bold;
 	text-align: center;
-	margin-bottom: $spacing-sm / 2;
+	margin-bottom: 0;
 	@extend %linkslist;
 	li {
 		&:not(:first-child) {
@@ -277,7 +287,9 @@ td {
 	}
 }
 
-.text-center {
+.wr {
+	margin-top: 0;
+	margin-bottom: 0;
 	text-align: center;
 }
 
