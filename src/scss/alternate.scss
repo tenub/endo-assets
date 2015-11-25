@@ -126,20 +126,6 @@ td {
 	}
 }
 
-.duel-loss {
-	&:after {
-		content: '\f063';
-		@extend %icon;
-	}
-}
-
-.duel-win {
-	&:after {
-		content: '\f062';
-		@extend %icon;
-	}
-}
-
 .info {
 	position: relative;
 	&[data-description]:hover {
@@ -172,6 +158,12 @@ td {
 		content: '\f0e7';
 		margin-right: $spacing-sm / 2;
 		@extend %icon;
+	}
+}
+
+.records {
+	&:after {
+		content: '\f1c0';
 	}
 }
 
@@ -256,6 +248,12 @@ h1, h2, h3 {
 		background-color: $color-emph;
 		border-top: 1px solid $bgcolor-drk2;
 		border-bottom: 1px solid $bgcolor-drk2;
+	}
+}
+
+.form-login {
+	label {
+		display: block;
 	}
 }
 
