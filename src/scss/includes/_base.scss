@@ -45,8 +45,14 @@ $spacing-lg: 2em;
 	margin-right: auto;
 }
 
-%field {
+%fielddark {
 	background-color: $bgcolor-drk3;
+	border: 1px solid $bgcolor-drk2;
+	border-radius: 1em;
+}
+
+%fieldlight {
+	background-color: $bgcolor-lgt1;
 	border: 1px solid $bgcolor-drk2;
 	border-radius: 1em;
 }

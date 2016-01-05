@@ -21,11 +21,15 @@ a {
 }
 
 button {
+	&[disabled] {
+		color: darken($color-text, 40%);
+		border-color: $bgcolor-drk3;
+	}
 	@extend %button;
 }
 
 input {
-	@extend %field;
+	@extend %fielddark;
 }
 
 nav {
@@ -106,6 +110,9 @@ td {
 	}
 	&:last-child {
 		border-right: 1px solid $bgcolor-drk2;
+	}
+	input, textarea {
+		@extend %fieldlight;
 	}
 	li {
 		margin-left: .75em;

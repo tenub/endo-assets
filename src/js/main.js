@@ -40,41 +40,92 @@ $(function() {
 		}
 	});
 
+	/**
+	 * Confirm record deletion before submitting to the server
+	 */
 	$('form.delete').on('submit', function (e) {
 		e.preventDefault();
 		helper.deleteRecord(this);
 	});
 
-	$('.toggle-cb').on('click', function (e) {
-		$(this).parents('fieldset').find('input[type="checkbox"][name="' + this.id + '"]').prop('checked', this.checked);
+	/**
+	 * Custom form submission
+	 */
+	$('.form-manage').submit(function (e) {
+		e.preventDefault();
+
+		var userArray = [];
+		var $form = $(this);
+
+		$(this).find('.manage-user').each(function () {
+			var $user = $(this);
+
+			userArray.push({
+				userId: $user.find('input[name="userId"]').val(),
+				userName: $user.find('input[name="userName"]').val(),
+				userEmail: $user.find('input[name="userEmail"]').val(),
+				userRole: $user.find('select[name="userRole"] option:selected').val()
+			});
+		});
+
+		$.ajax({
+			url: this.action,
+			type: 'post',
+			data: {
+				users: userArray
+			},
+			success: function (data) {
+				$form.find('.form-manage-save').prop('disabled', true);
+			},
+			error: function (request, status, error) {
+				alert(request);
+			}
+		});
 	});
 
-	$('.form-manage input, .form-manage select').on('change', function (e) {
+	/**
+	 * Enable submit button if an input change is detected
+	 */
+	$('.form-manage input').on('input', function (e) {
 		$('.form-manage-save').prop('disabled', false);
 	});
 
-	$('.form-manage-save').on('click', function (e) {
-		$(this).prop('disabled', true);
+	$('.form-manage select').on('change', function (e) {
+		$('.form-manage-save').prop('disabled', false);
 	});
 
+	/**
+	 * Functionality for role addition and removal
+	 */
 	$('.form-manage-role-add, .form-manage-role-remove').on('click', 'button', function (e) {
 		var $parent = $(this).parent();
 		var $user = $parent.parents('.manage-user');
 		var $selected = $parent.find('select option:selected');
 		var $userRoles = $user.find('.user-roles');
+		var $removeSelect = $user.find('.form-manage-role-remove select');
+		var $removeAdd = $user.find('.form-manage-role-add select');
 
-		e.preventDefault();
+		// do not process disabled options that are selected
+		if (!$selected.length || $selected.prop('disabled')) {
+			return false;
+		}
 
+		// case for adding a role
 		if ($parent.hasClass('form-manage-role-add')) {
+			// if item to be added is not in role list, add it and sort list alphabetically
 			if (!$.grep($userRoles.find('li'), function (el) {
 				return $selected.val().length && $(el).data('roleId') == $selected.val();
 			}).length) {
 				$userRoles.append('<li data-role-id="' + $selected.val() + '">' + $selected.text() + '</li>');
 				$parent.find('option[value="' + $selected.val() + '"]').remove();
-				$user.find('.form-manage-role-remove select').append('<option value="' + $selected.val() + '">' + $selected.text() + '</option>');
+				$removeSelect.append('<option value="' + $selected.val() + '">' + $selected.text() + '</option>');
+				helper.sortChildElements($removeSelect).appendTo($removeSelect);
+				helper.sortChildElements($userRoles).appendTo($userRoles);
 				$parent.find('select').trigger('change');
 			}
+		// case for removing a role
 		} else if ($parent.hasClass('form-manage-role-remove')) {
+			// if item to be added is in role list, remove it
 			if ($.grep($userRoles.find('li'), function (el) {
 				return $selected.val().length && $(el).data('roleId') == $selected.val();
 			}).length) {
@@ -84,5 +135,12 @@ $(function() {
 				$parent.find('select').trigger('change');
 			}
 		}
+	});
+
+	/**
+	 * Mass toggle functionality
+	 */
+	$('.toggle-cb').on('click', function (e) {
+		$(this).parents('fieldset').find('input[type="checkbox"][name="' + this.id + '"]').prop('checked', this.checked);
 	});
 });

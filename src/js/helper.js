@@ -203,6 +203,18 @@
 
 			return params;
 		};
+
+		/**
+		 * Sort DOM elements alphabetically
+		 *
+		 * @param {object} $parent jQuery parent element
+		 * @return {object} sorted collection of child elements
+		 */
+		this.sortChildElements = function ($parent) {
+			return $parent.children().sort(function (a, b) {
+				return $(a).text().localeCompare($(b).text());
+			});
+		};
 	}
 
 	exports.Helper = Helper;
