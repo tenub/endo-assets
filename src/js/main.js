@@ -141,6 +141,6 @@ $(function() {
 	 * Mass toggle functionality
 	 */
 	$('.toggle-cb').on('click', function (e) {
-		$(this).parents('fieldset').find('input[type="checkbox"][name="' + this.id + '"]').prop('checked', this.checked);
+		$(this).parents('table').find('input[type="checkbox"][name="' + this.id + '"]').prop('checked', this.checked);
 	});
 });

@@ -52,7 +52,8 @@ $spacing-lg: 2em;
 }
 
 %fieldlight {
-	background-color: $bgcolor-lgt1;
+	color: $bgcolor-drk1;
+	background-color: darken($color-text, 20%);
 	border: 1px solid $bgcolor-drk2;
 	border-radius: 1em;
 }

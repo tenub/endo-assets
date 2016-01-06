@@ -157,21 +157,27 @@
 		 */
 		this.deleteRecord = function (form) {
 			if (this.confirmDelete('Really delete the record?')) {
-				var _this = this
-					, formData
-					, deleteData = {}
-					;
+				var formData = {
+					ids: [],
+					table: $(form).data('table')
+				};
 
-				$(form).find('fieldset.type').each(function () {
-					formData = $(this).serialize();
-					deleteData[this.name] = _this.getParams(decodeURIComponent(formData));
+				$(form).find('tbody input[type="checkbox"]:checked').each(function (index, el) {
+					formData.ids.push(el.value);
 				});
-
-				$.post('/delete', deleteData, function (response) {
-					if (response === false) {
-						window.alert('Unable to delete record.');
-					} else {
-						window.location.reload();
+				$.ajax({
+					url: form.action,
+					type: 'post',
+					data: formData,
+					success: function (response) {
+						if (!response) {
+							window.alert('Unable to delete record.');
+						} else {
+							window.location.reload();
+						}
+					},
+					error: function (request, status, error) {
+						console.log(request.responseText);
 					}
 				});
 
