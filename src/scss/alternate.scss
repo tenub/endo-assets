@@ -168,6 +168,27 @@ td {
 	}
 }
 
+/* .manage-add {
+	&:after {
+		content: '\f067';
+		@extend %icon;
+	}
+}
+
+.manage-del {
+	&:after {
+		content: '\f068';
+		@extend %icon;
+	}
+}
+
+.manage-save {
+	&:after {
+		content: '\f0c7';
+		@extend %icon;
+	}
+} */
+
 .records {
 	&:after {
 		content: '\f1c0';

@@ -75,7 +75,7 @@ $(function() {
 				users: userArray
 			},
 			success: function (data) {
-				$form.find('.form-manage-save').prop('disabled', true);
+				$form.find('.manage-save').prop('disabled', true);
 			},
 			error: function (request, status, error) {
 				alert(request);
@@ -87,11 +87,11 @@ $(function() {
 	 * Enable submit button if an input change is detected
 	 */
 	$('.form-manage input').on('input', function (e) {
-		$('.form-manage-save').prop('disabled', false);
+		$('.manage-save').prop('disabled', false);
 	});
 
 	$('.form-manage select').on('change', function (e) {
-		$('.form-manage-save').prop('disabled', false);
+		$('.manage-save').prop('disabled', false);
 	});
 
 	/**
